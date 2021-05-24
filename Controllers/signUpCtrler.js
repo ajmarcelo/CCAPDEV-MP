@@ -63,7 +63,7 @@ const signupCtrler = {
     },
 
     getCheckUsername: function (req, res) {
-        var username = req.query.uname;
+        var username = req.query.username;
         db.findOne(User, {username: username}, 'username', function (result) {
             res.send(result);
         });
