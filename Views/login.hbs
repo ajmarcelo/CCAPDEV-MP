@@ -61,6 +61,22 @@
 
 			}
 
+			.error {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+			}
+
+			#err {
+				margin: 1%;
+				padding: 1%;
+				color: #800000;
+				background-color: #fff9dd;
+				border-radius: 50px;
+				font-weight: bold;
+				width: 80%;
+			}
+
 			#login {
 				text-decoration: none;
 			}
@@ -101,7 +117,11 @@
 				<br><br>		
 				<input class="accdets" type="text" placeholder="Password" id="pword" name="pword">
 				<br><br>
-			</form>				
+			</form>
+			<div class = "error">
+				<p id = "err">{{error}}</p>
+			</div>
+			<br>		
 			<button id="loginbutton">Log in</button>
 			<br><br>
 			<a id="signup" href="signup.html">Sign Up for Plantheta</a>

@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title> Contact Us </title>
+		<title>Contact Us</title>
 		<meta name="description" content="Contact Us Page for Members">
 		<meta name="author" content="Andrea Jean Marcelo">
 
@@ -26,14 +26,12 @@
 					</p>
 				</div>
 				<div id = "contactBox">
-					<!-- <input class="message" type="text" placeholder="Write here..." id="msg" name="msg">
-				<br><br> -->
 					<div id = "message">
 						<textarea type = "text" class = "message" id = "msg" name = "msg" rows = "18" cols = "10" maxlength = "800" placeholder = "Write here..."></textarea>
 					</div>
 					<br>
 					<div class = "error">
-						<p id = "err"></p>
+						<p id = "err">{{error}}</p>
 					</div>
 					<button id="send" name="send">Send</button>
 				</div>

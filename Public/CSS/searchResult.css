@@ -19,3 +19,19 @@
 	background-color: rgba(209, 167, 72, 0.5);	/* #d1a748; */
 	width: 70%;
 }
+
+.error {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+#err {
+	margin: 1%;
+	padding: 1%;
+	color: #800000;
+	background-color: #fff9dd;
+	border-radius: 50px;
+	font-weight: bold;
+	width: 80%;
+}
