@@ -7,7 +7,7 @@
 				</a>
 			</div>
 			<div class = "righthead">
-				<a class = "person" href = "/{{username}}/profile"> {{username}} </a>
+				<a class = "person" href = "/{{username}}/profile">{{username}}</a>
 				<p class = "date">{{date}}</p>
 			</div>
 		</div>							
@@ -15,5 +15,8 @@
 	<hr>
 	<p class = "postcontent">
 		{{content}}		
-	</p>				
+	</p>
+	{{#if owner}}
+		{{> myCmntBtns}}
+	{{/if}}			
 </div>
