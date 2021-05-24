@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const User = require('./user.js');
 const Post = require('./postCQ.js');
+const Comment = require('./postCmnts.js');
+const ContactUs = require('./contact.js');
 
 const url = 'mongodb+srv://ajm:sle@cluster0.5isjl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 

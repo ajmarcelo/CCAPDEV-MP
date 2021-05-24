@@ -6,17 +6,7 @@ const User = require('../Model/user.js');
 
 const logInCtrler = {
     getLogIn: function (req, res) {
-        if(req.session.uname) {
-            res.redirect('/profile/' + req.session.uname);
-        }
-
-        else {
-            var details = {
-                flag: false
-            };
-
-            res.render('login', details);
-        }
+        res.render('login');
     },
 
     postLogIn: function (req, res) {
@@ -35,7 +25,7 @@ const logInCtrler = {
                     if(equal) {
                         req.session.uname = user.uname;
                         req.session.fname = user.fName;
-                        res.redirect('/profile/' + user.uname);
+                        res.render('home');
                     }
 
                     else {
