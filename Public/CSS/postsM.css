@@ -1,0 +1,77 @@
+/* Styles for posts for Members view */
+
+button {
+	border: 2px solid;
+	padding: 0px;
+	cursor: pointer;
+	font-size: 1.5vh;
+	border-radius: 12px;
+}
+
+.btn {
+	display: flex;
+	margin: 1%;
+}
+
+.up, .down, .edit, .delete, .cmnt {
+	margin: 1%;
+	width: 4%;
+}
+
+.upvote, .downvote, .editlbl, .deletelbl, .cmntlbl {
+	margin: 0px;
+	padding: 12%;
+	color: #fff9dd;
+}
+
+.cmnt:hover, .up:hover, .down:hover, .edit:hover, .delete:hover {
+	background-color: #fff9dd;
+}
+
+.cmnt {
+	border-color: grey;
+	background-color: grey;
+}
+
+.cmntlbl:hover {
+	color: grey;
+}
+
+.up, .down {
+	font-weight: bold;
+}
+
+.up {
+	border-color: #006b38;
+	background-color: #006b38;
+}
+
+.down {
+	border-color: #800000;	/* #5a0000 */
+	background-color: #800000;
+}
+
+.up:hover {	/* #e0f0e3 */
+	color: #415421;
+}
+
+.down:hover {	/* #f8dedd */
+	color: #5a0000;
+}
+
+.upvote:hover {
+	color: #006b38;	
+}
+
+.downvote:hover {
+	color: #800000;
+}
+
+.edit, .delete {
+	background-color: #d1a748;
+	border-color: #d1a748;
+}
+
+.editlbl:hover, .deletelbl:hover {
+	color: #d1a748;	/* #daac2a */
+}

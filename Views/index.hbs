@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> Plantheta </title>
+		<!-- <link rel="stylesheet" type="text/css" href= "design.css"> -->	
+		<meta name="description" content="Welcome Page">
+		<meta name="author" content="Andrea Jean Marcelo">
+		<style>
+		@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center; 
+				text-align: center;
+				background-image: url("images/welcomebg.jpg");
+	    		background-repeat: no-repeat;
+				background-attachment: fixed;
+    			background-position: center;
+    			background-size: cover;
+    			height: 100%;
+    			width: 100%;
+				margin: 0px;
+			}
+
+			h1 {
+				font-size: 17vh;
+				color: #d1a748;
+				margin: 0;
+			}
+
+			button {
+  				border: 2px solid black;
+  				color: #d1a748;
+  				padding: 14px 28px;
+  				cursor: pointer;				
+				width: 50%;
+				font-size: 4vh;
+				background-color: #fff9dd;
+				border-color: #d1a748;
+				border-radius: 12px;
+			}
+
+			button:hover {
+				background-color: #d1a748;
+				color: white;
+			}
+
+			h1, .buttons {
+				font-family: 'Montserrat', sans-serif;
+			}
+
+			.welcomeContents {
+				height:300px; 
+				width:1000px; 
+				align-items: center;
+				justify-content: center;
+			}
+
+			.welcomeContents {
+				padding: 9% 9%;		
+				margin: auto;	
+			}			
+		</style>
+	</head>
+
+	<body id="welcomeBody">
+		<div class="welcomeContents">
+			<h1 id="welcomemsg"> Welcome to Plantheta! </h1>
+			<br><br>
+			<button class="buttons" id="login">Log in</button>
+			<br><br>
+			<button class="buttons" id="signup">Sign Up</button>
+			<br><br>
+			<button class="buttons" id="viewer">Proceed as Viewer</button>
+			<br><br>			
+		</div>	
+		<script>
+			function clicklogin() {
+				location.href = "login.html";
+			}
+			function clicksignup() {
+				location.href="signup.html";
+			}
+
+			function clickviewer() {
+				location.href="homeV.html";
+			}
+
+			var loginButton = document.getElementById("login");
+			var signupButton = document.getElementById("signup");
+			var viewerButton = document.getElementById("viewer");
+			loginButton.onclick = clicklogin;	
+			signupButton.onclick = clicksignup;
+			viewerButton.onclick = clickviewer;		
+		</script>
+	</body>
+</html>

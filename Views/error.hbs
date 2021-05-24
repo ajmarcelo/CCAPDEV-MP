@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> Error 404 </title>
+		<meta name="description" content="Error 404">
+		<meta name="author" content="Andrea Jean Marcelo">
+
+	</head>
+
+	<body id="errorBody">
+		<style type = "text/css">
+			@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+			body {
+				background-color: #1e1e1e;
+				height: 100%;
+				width: 100%;
+				margin: 0;		  			
+			}
+
+			h1 {
+				font-size: 10vh;
+				color: black;
+				margin: 0;
+			}
+
+			img {
+				border-radius: 50px;
+			}
+
+			.maintabs, #errortitle {
+				font-family: 'Montserrat', sans-serif;
+			}
+
+			#errordesc {
+				font-family: 'Lato', sans-serif;
+			}
+
+			.maintabs {
+				background-color: #8aa169;
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 100%;
+				display: flex;
+				justify-content: flex-start;
+			}
+
+			.maintabs a {
+				margin-top: auto;
+				margin-bottom: auto;
+				padding: 12px 12px;
+				text-decoration: none;
+				color: #fff9dd;
+				text-align: center;
+				font-weight: 300;
+				font-size: 2.0vh;
+			}
+
+			.maintabs a:hover {
+				background-color: #d1a748;
+				color: #fff9dd;
+			}
+
+			.errorContents {		
+				background-color: #fff9dd;
+				border-style: double;
+				border-color: #d1a748;
+				border-width: 15px;
+				border-radius: 12px;
+				width: 60%;
+				padding: 4% 4%;
+				display: flex;
+				flex-direction: row;
+			}
+
+			#imgSide, #txtSide {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			#imgSide {
+				width: 30%;
+			}
+
+			#txtSide {
+				width: 70%;
+			}
+
+			#errordesc
+			{
+				color: #006b38ff;
+				font-size: 3vh;
+				text-align: justify;
+			}	
+
+			#parentContents {
+				margin: auto;
+				padding: 9% 9%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+		<!-- Main Tabs -->
+		{{#if role}}
+			{{> headerM}}
+		{{else}}
+			{{> headerV}}
+		{{/if}}
+
+		<div id="parentContents">
+			<div class="errorContents">
+				<div id = "imgSide">
+					<img src = "images/errorIcon.png" alt = "Error Icon" width = 125px height = 125px>
+				</div>
+				<div id = "txtSide">
+					<h1 id="errortitle"> ERROR 404 </h1>
+					<p id="errordesc">
+						File not found
+					</p>
+				</div>
+			</div>		
+		</div>	
+	</body>
+</html>

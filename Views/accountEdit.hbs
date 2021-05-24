@@ -1,0 +1,125 @@
+<!-- I. ACCOUNT RELATED PAGES: 3. View Account (Settings) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Account</title>
+	<link rel = "stylesheet" type = "text/css" href = "CSS/accounts.css">
+</head>
+<body>
+
+	<style>
+		#fName, #lName, #curr-pass, #birthday, #curr-loc, #email, #business, #years {
+			font-size: 1.9vh;
+			border: none;
+			width: 90%;
+		}
+
+		#t1 {
+			background-color: #fff9dd;
+			color: #555251;
+			border-radius: 50px;
+			border: none;
+			width: 100%;
+			font-weight: normal;
+			margin: 3%;
+			padding: 4%;
+			font-size: 2.0vh;
+		}
+
+		.buttons {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			height: 45%;
+		}
+
+		#editdets, #deleteacc {
+			font-size: 2.5vh;
+			font-weight: bold;
+			width: 85%;
+		}
+
+		.error {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
+
+		#err {
+			margin: 1%;
+			padding: 1%;
+			color: #800000;
+			background-color: #fff9dd;
+			border-radius: 50px;
+			font-weight: bold;
+			width: 80%;
+			text-align: center;
+		}
+	</style>
+
+	<!-- Main Tabs -->
+	{{> headerM}}
+	
+	<div id = "parentSettings">
+		<div class = "settings">
+			<div class = "content" id = "left">
+				<!-- <p id =  "s1">Left content</p> -->
+				<div class = "typehead">
+					<p class = "type">{{role}}</p>
+				</div>
+				<div id = "pfp">
+					<img src = "images/defaultPFP.png" alt = "Avatar">
+					<h2>{{fName}}{{lName}}</h2>
+					<h4>{{username}}</h4>
+				</div>
+				<div class = "buttons">
+					<button id = "editdets"> Save Details</button>
+					<br><br>
+					<button id = "deleteacc"> Delete Account</button>
+				</div>
+			</div>
+			<div class = "content" id = "mid">
+				<div id = "bio">
+					<textarea type = "text" class = "text" id = "t1" name = "t1" rows = "15" cols = "10" maxlength = "550" placeholder = "Write a short introduction about yourself!"></textarea>
+				</div>
+				<br><br>
+				<div class = "error">
+					<p id = "err"></p>
+				</div>
+			</div>
+			<div class = "content" id = "right">
+				<!-- <p id = "s2">Right content</p> -->
+				<div class = "info">
+					<form>
+						<label for = "fName" class = "lbl">First name: </label>
+						<input type = "text" id = "fName" name = "fName" placeholder = "First Name">{{fName}}<br>
+
+						<label for = "lName" class = "lbl">Last name: </label>
+						<input type = "text" id = "lName" name = "lName" placeholder = "Last Name">{{lName}}<br>
+
+						<label for = "password" class = "lbl">Password: </label><br>
+						<input type = "password" id = "curr-pass" name = "curr-pass" placeholder = "Password"><br>
+
+						<label for = "birthday" class = "lbl">Birthday: </label><br>
+						<input type = "date" id = "birthday" name = "birthday" placeholder = "01/01/2021"><br>
+
+						<label for = "location" class = "lbl">Location: </label><br>
+						<input type = "text" id = "curr-loc" name = "curr-loc" placeholder = "Country"><br>
+
+						<label  for = "email" class = "lbl">Email: </label><br>
+						<input type = "email" id = "email" name = "email" placeholder = "example@mail.com"><br>
+
+						<label for = "business" class = "lbl">Business: </label><br>
+						<input type = "text" id = "business" name = "business" placeholder = "Business Name"><br>
+
+						<label for = "years" class = "lbl">Years of business: </label>
+						<input type = "text" id = "years" name = "years" placeholder = "Years of business">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>

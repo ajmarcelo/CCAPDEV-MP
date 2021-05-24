@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> Table of Contents </title>
+		<!-- <link rel="stylesheet" type="text/css" href= "design.css"> -->	
+		<meta name="description" content="Table of Contents Page for Members">
+		<meta name="author" content="Andrea Jean Marcelo">
+
+		<link rel = "stylesheet" type = "text/css" href = "CSS/contentTable.css">
+	</head>
+
+	<body id="TofCBody">
+		<!-- Main Tabs -->
+		{{#if role}}
+			{{> headerM}}
+		{{else}}
+			{{> headerV}}
+		{{/if}}
+
+		<div id="parentTOC">
+			<div class="tableofContents">
+				<h1 id="TofCtitle"> Table Of Contents </h1>
+				<br>
+				<a class="plants" id="plant1M" href="fortuneplantM.html">Fortune Plant</a>
+				<hr>
+				<a class="plants" id="plant2M" href="oreganoM.html">Oregano</a>
+				<hr>
+				<a class="plants" id="plant5M" href="PeperomiaM.html">Peperomia (Baby Rubber Plant)</a>
+				<hr>
+				<a class="plants" id="plant4M" href="UmbrellaPlantM.html">Schefflera Umbrella Plant</a>
+				<hr>
+				<a class="plants" id="plant3M" href="wanderingplantM.html">Wandering Jew</a>
+				<hr>				
+			</div>	
+		</div>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+body {				
+	background-image: url("images/aboutusbg.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	margin: 0;		  			
+}
+
+h1 {
+	font-size: 10vh;
+	color: black;
+	margin: 0;
+}
+
+.maintabs, #abouttitle {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#aboutdesc {
+	font-family: 'Lato', sans-serif;
+}
+
+.maintabs {
+	background-color: #8aa169;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.maintabs a {
+	margin-top: auto;
+	margin-bottom: auto;
+	padding: 12px 12px;
+	text-decoration: none;
+	color: #fff9dd;
+	text-align: center;
+	font-weight: 300;
+	font-size: 2.0vh;
+}
+
+.maintabs a:hover {
+	background-color: #d1a748;
+	color: #fff9dd;
+}
+
+.aboutContents {		
+	background-color: #fff9dd;
+	border-style: double;
+	border-color: #d1a748;
+	border-width: 15px;
+	border-radius: 12px;
+	padding: 4% 4%;	
+}
+
+#aboutdesc
+{
+	color: #006b38ff;
+	font-size: 3vh;
+	text-align: justify;
+}	
+
+#parentContents {
+	margin: auto;
+	padding: 9% 9%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

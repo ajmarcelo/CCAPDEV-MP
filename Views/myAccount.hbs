@@ -1,0 +1,76 @@
+<!-- I. ACCOUNT RELATED PAGES: 3. View Account (Settings) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Account</title>
+	<link rel = "stylesheet" type = "text/css" href = "CSS/accounts.css">
+</head>
+<body>
+
+	<style type = "text/css">
+		.buttons {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			height: 45%;
+		}
+
+		#editdets, #deleteacc {
+			font-size: 2.5vh;
+			font-weight: bold;
+			width: 85%;
+		}
+	</style>
+
+	<!-- Main Tabs -->
+	{{> headerM}}
+	
+	<div id = "parentSettings">
+		<div class = "settings">
+			<div class = "content" id = "left">
+				<!-- <p id =  "s1">Left content</p> -->
+				<div class = "typehead">
+					<p class = "type">{{role}}</p>
+				</div>
+				<div id = "pfp">
+					<img src = "images/defaultPFP.png" alt = "Avatar">
+					<h2>{{fName}} {{lName}}</h2>
+					<h4>{{username}}</h4>
+				</div>
+				<div class = "buttons">
+					<button id = "editdets"> Edit Details</button>
+					<br><br>
+					<button id = "deleteacc"> Delete Account</button>
+				</div>
+			</div>
+			<div class = "content" id = "mid">
+				<div id = "bio">
+					<p class = "text" id = "t1">{{bio}}</p>
+				</div>
+			</div>
+			<div class = "content" id = "right">
+				<!-- <p id = "s2">Right content</p> -->
+				<div class = "info">
+					<label for = "fName" class = "lbl">First name: </label><p id = "fName">{{fName}}</p>
+
+					<label for = "lName" class = "lbl">Last name: </label><p id = "lName">{{lname}}</p>
+
+					<label for = "password" class = "lbl">Password: </label><p id = "curr-pass">{{password}}</p>
+
+					<label for = "birthday" class = "lbl">Birthday: </label><p id = "birthday">{{birthday}}</p>
+
+					<label for = "location" class = "lbl">Cpuntry: </label><p id = "curr-loc">{{location}}</p>
+
+					<label  for = "email" class = "lbl">Email: </label><p id = "email">{{email}}</p>
+
+					<label for = "business" class = "lbl">Business: </label><p id = "business">{{business}}</p>
+
+					<label for = "years" class = "lbl">Years of business: </label><p id = "years">{{years}}</p>
+				</div>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>

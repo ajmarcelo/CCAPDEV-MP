@@ -1,0 +1,36 @@
+<div id = "pPost">
+	<div class = "posthead">
+		<div class = "poster">
+			<div class = lefthead>
+				<a href = "/{{username}}/profile" title = "{{fName}} {{lName}}">
+				<img id = "PFP" src = "images/defaultPFP.png" width = "50" height = "50">
+				</a>
+			</div>
+			<div class = "righthead">
+				<a class = "person" href = "/{{username}}/profile" title = "{{fName}} {{lName}}"> {{username}} </a>
+				<p class = "date">{{date}}</p>
+			</div>
+		</div>
+		<div class = "typehead">
+			<p class = "type">{{type}}</p>
+		</div>								
+	</div>
+	<hr>
+	<div class = "postcontent">
+		<p>
+			{{content}}
+		</p>
+	</div>
+	<div class = "voteCnt">
+		<p id = "upCnt"> 0 </p><p> &#8679 </p>
+		<p id = "downCnt"> 0 </p><p> &#8681 </p>
+	</div>
+	{{#if role}}
+		{{#if owner}}
+			{{> myPostBtns}}
+		{{else}}
+			{{> otherPostBtns}}
+		{{/if}}
+	{{/if}}
+
+</div>

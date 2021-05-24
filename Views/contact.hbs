@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> Contact Us </title>
+		<meta name="description" content="Contact Us Page for Members">
+		<meta name="author" content="Andrea Jean Marcelo">
+
+		<link rel = "stylesheet" type = "text/css" href = "CSS/contact.css">
+	</head>
+
+	<body id="contactMBody">
+		<!-- Main Tabs -->
+		{{#if role}}
+			{{> headerM}}
+		{{else}}
+			{{> headerV}}
+		{{/if}}
+		
+		<div id="parentContact">
+			<div class="contactM">
+				<div id = "contactTxt">
+					<h1 id="contactMTitle">We hear you!</h1>
+					<p id="contactdesc">
+						You can send us feedbacks, suggestions, inquiries or any other concerns :) 
+					</p>
+				</div>
+				<div id = "contactBox">
+					<!-- <input class="message" type="text" placeholder="Write here..." id="msg" name="msg">
+				<br><br> -->
+					<div id = "message">
+						<textarea type = "text" class = "message" id = "msg" name = "msg" rows = "18" cols = "10" maxlength = "800" placeholder = "Write here..."></textarea>
+					</div>
+					<br>
+					<div class = "error">
+						<p id = "err"></p>
+					</div>
+					<button id="send" name="send">Send</button>
+				</div>
+			</div>	
+		</div>
+		<script>
+			function clicksend ()
+			{
+				alert("Your message has been sent!");
+			}	
+			var sendButton = document.getElementById("send");
+			sendButton.onclick = clicksend;
+		</script>	
+	</body>
+</html>

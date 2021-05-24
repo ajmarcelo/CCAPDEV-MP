@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> Sign up </title>
+		<!-- <link rel="stylesheet" type="text/css" href= "design.css"> -->	
+		<meta name="description" content="Sign up Page">
+		<meta name="author" content="Andrea Jean Marcelo">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+			body {			
+				background-image: url("images/signupbg.jpg");
+	    		background-repeat: no-repeat;
+				background-attachment: fixed;
+    			background-position: center;
+    			background-size: cover;
+    			height: 100%;
+    			width: 100%;
+				margin: 0px;
+    			display: flex;
+				align-items: center;
+				justify-content: center;    			
+			}
+
+			#signuptitle, h3, .buttons, #proofNote1 {
+				font-family: 'Montserrat', sans-serif;
+			}
+
+			label, #login, #viewer, #proofNote2 {
+				font-family: 'Lato', sans-serif;
+			}
+
+			h1 {
+				font-size: 10vh;
+				color: #fff9dd;
+				margin: 0;
+			}
+
+			h3 {
+				background-color: #d1a748;
+			}
+
+			button {
+  				border: 2px solid black;
+  				color: white;
+  				padding: 2px 24px;
+  				cursor: pointer;				
+				width: 20%;
+				font-size: 3vh;
+				background-color: #d1a748;
+				border-color: #d1a748; 
+				border-radius: 12px;
+			}
+
+			button:hover {
+				border-color: #d1a748;
+				background-color: #fff9dd;
+				color: #d1a748;
+			}
+
+			label {
+				display: inline-block;
+				text-align: left;
+				color: #fff9dd;
+				font-size: 3vh;
+			}	
+
+			.signupContents {
+				width:80%;
+				height:100%;
+				padding-top: 2%;			
+				background-color: #8aa169;
+				text-align: center;
+				align-items: center;
+				justify-content: center;
+			}
+
+			#signupForm {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			#leftHalf, #rightHalf {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 0% 8%;
+			}
+
+			#fname, #lname, #uname, #pword, #bday, #cname, #email {
+				width: 100%;
+			}
+
+			#label {
+				text-align: left;
+			}
+
+			#login, #viewer {
+				color: black;
+			}
+
+			#proofNote {
+				color: black;
+			}
+
+			#err {
+				margin: 0%;
+				padding: 1%;
+				color: #800000;
+				font-weight: bold;
+				width: 40%;
+			}
+
+			.error {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+			}
+
+			.accdets {
+  				border: 3px solid #8aa169;
+  				color: #8aa169;
+  				padding: 10px 18px;
+  				cursor: pointer;				
+				width: 20%;
+				font-size: 2vh;
+				background-color: #fff9dd;
+				border-color: #d1a748;
+				border-radius: 12px;
+			}
+
+			.accdets:hover, .accdets:focus {
+				border: 3px solid #8aa169;
+				border-radius: 12px;
+				background-color: #fff9dd;
+			}					
+		</style>
+	</head>
+
+	<body id="signupBody">
+		<div class="signupContents">
+			<h1 id="signuptitle"> Sign up </h1>
+			<a id="login" href="login.html">Log in to existing account</a>
+			<br>
+			<a id="viewer" href="homeV.html">Proceed as Viewer</a>		
+			<br><br>
+			<form id = "signupForm">
+				<div id = "leftHalf">
+					<label id="label">First Name</label>
+					<input class="accdets" type="text" placeholder="First Name" id="fname" name="fname"><br>
+					<label id="label1">Last Name</label>
+					<input class="accdets" type="text" placeholder="Last Name" id="lname" name="lname">	
+					<br><br>
+					<label id="label">Username</label>
+					<input class="accdets" type="text" placeholder="Username" id="uname" name="uname"><br>
+					<label id="label1">Password</label>
+					<input class="accdets" type="text" placeholder="Password" id="pword" name="pword">
+					<br><br>
+				</div>
+				<div id = "rightHalf">
+					<label id="label">Birthday</label>
+					<input class="accdets" type="date" id="bday" name="bday" 
+							value="2000-01-01" min="1900-01-01" max="2021-12-31"><br>
+					<label id="label1">Country</label>
+					<input class="accdets" type="text" placeholder="Country" id="cname" name="cname"><br>
+					<label id="label1">Existing Email</label>
+					<input class="accdets" type="text" placeholder="Email" id="email" name="email">	
+					<br><br>
+				</div>
+				<br>
+			</form>
+			<h3> Please fill up if you are signing up as a contributor:</h3>
+
+				<label id="label">Plant Business Name</label>
+				<input class="accdets" type="text" placeholder="Plant Business Name" id="pbname" name="pbname">
+				<br><br><label id="label">Years of business</label>
+				<select class="accdets" name="byears" id="byears">
+					<option value="less than a year">less than a year</option>
+					<option value="1-2 year">1-2 years</option>
+					<option value="2-3"> 2-3 years</option>
+					<option value="3-4 years">3-4 years</option>
+					<option value="4-5 years">4-5 years</option>
+					<option value="more than 5 years">more than 5 years</option>	
+				</select>
+				<br><br>
+				<p id = "proofNote">Insert a link (e.g. online shop link)
+				</p>
+				<label id = "label">Proof</label>
+				<input class="accdets" type="url" placeholder="Insert link here.." id="olink" name="olink">
+				<br><br>
+				<div class = "error">
+					<p id = "err"></p>
+				</div>
+				<br><br><br>							
+		
+			<button class="buttons" id="submit">Submit</button>
+			<br><br><br>	
+		</div>	
+		<script>
+			function clicksubmit() {
+				location.href="login.html";
+				alert("You may now log in your account.");
+			}
+
+			var submitButton = document.getElementById("submit");	
+			submitButton.onclick = clicksubmit;					
+		</script>
+	</body>
+</html>

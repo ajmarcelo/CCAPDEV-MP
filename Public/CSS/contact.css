@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+body {
+	background-image: url("images/contactbg.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+.maintabs {
+	background-color: #8aa169;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.maintabs a {
+	margin-top: auto;
+	margin-bottom: auto;
+	padding: 12px 12px;
+	text-decoration: none;
+	color: #fff9dd;
+	text-align: center;
+	font-weight: 300;
+	font-size: 2.0vh;
+}
+
+.maintabs a:hover {
+	background-color: #d1a748;
+	color: #fff9dd;
+}
+
+.maintabs, #contactMTitle, #send {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#contactdesc, .error {
+	font-family: 'Lato', sans-serif;
+}
+
+#contactMTitle {
+	background-color: rgba(0, 107, 56, 0.5);
+	border-radius: 50px;
+	color: #e5c469;
+	font-size: 8vh;
+	text-align: center;
+	margin: 0;
+	padding: 1.5%;
+}
+
+.contactM {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.message {
+	border: 5px solid #d1a748;
+	color: #8aa169;
+	padding: 2%;
+	width: 100%;
+	cursor: pointer;
+	font-size: 17px;
+	text-align: justify;
+	background-color: #fff9dd;
+	border-color: #d1a748;
+	border-radius: 12px;
+}
+
+.message:hover, .message:focus {
+	border: 5px solid #8aa169;
+	border-radius: 12px;
+	background-color: #fff9dd;
+}
+
+.error {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+#err {
+	margin: 1%;
+	padding: 1%;
+	color: #800000;
+	background-color: #fff9dd;
+	border-radius: 50px;
+	font-weight: bold;
+	width: 80%;
+}
+
+#message {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-bottom: 3%;
+}
+
+#send {
+	border: 2px solid black;
+	color: white;
+	padding: 2px 24px;
+	cursor: pointer;				
+	width: 20%;
+	font-size: 20px;
+	background-color: #d1a748;
+	border-color: #d1a748; 
+	border-radius: 12px;
+}
+
+#send:hover{
+	border-color: #d1a748;
+	background-color: #fff9dd;
+	color: #d1a748;
+}
+
+#contactdesc {
+	background-color: rgba(248, 248, 248, 0.7);
+	border-radius: 50px;
+	color: #2a2725;
+	font-style: bold;
+	padding: 1.5%;
+	margin: 1.0%;
+}
+
+#contactTxt, #contactBox {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 50%;
+	margin: 0% 5%;
+}
+
+#parentContact {
+	margin: auto;
+	padding: 8% 2%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

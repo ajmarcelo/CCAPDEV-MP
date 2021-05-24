@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> Fortune Plant </title>
+		<meta name="description" content="View a Specific Page for Members">
+		<meta name="author" content="Andrea Jean Marcelo">
+
+		<link rel = "stylesheet" type = "text/css" href = "CSS/plants.css">
+		<link rel = "stylesheet" type = "text/css" href = "CSS/postsGen.css">
+		<link rel = "stylesheet" type = "text/css" href = "CSS/postsM.css">
+	</head>
+
+	<body id="fplantBody">
+		<!-- Main Tabs -->
+		{{#if role}}
+			{{> headerM}}
+		{{else}}
+			{{> headerV}}
+		{{/if}}
+		
+		<div id = "parent">
+			<div id = "page">
+				<div id = "pMain">
+					<div class = "pInfo">
+						<div id = "pPic"><img src="images/fortuneplant.png" width = "200" height = "200"></div>
+						<div id = "pBio">
+							<h2 id = "pTitle">{{pTitle}}</h2>
+							<p class = "addInfo"><b class = "pDesc">Scientific Name: </b>{{pName}}</p>
+							<p class = "addInfo"><b class = "pDesc">Outdoor/Indoor: </b>{{pInOut}}</p>
+							<p class = "addInfo"><b class = "pDesc">Watering Care: </b>{{pWater}}</p>
+							<p class = "addInfo"><b class = "pDesc">Origin: </b>{{pOrigin}}</p>
+							<p class = "addInfo"><b class = "pDesc">Light: </b>{{pLight}}</p>
+							<p class = "addInfo"><b class = "pDesc">Family: </b>{{pFamily}}</p>
+						</div>
+					</div>
+					<div id = "pWall">
+						<div class = "pContribution" id = "c2">
+							{{> post}}
+							<!-- <div class = "posthead">
+								<div class = "poster">
+									<div class = lefthead>
+										<a href = "AndreiM.html" title = "Andrei De La Cruz">
+										<img id = "PFP" src = "images/defaultPFP.png" width = "50" height = "50">
+										</a>
+									</div>
+									<div class = "righthead">
+										<a class = "person" href = "AndreiM.html" title = "Andrei De La Cruz"> @ajm_ </a>
+										<p class = "date">12-30-2020</p>
+									</div>
+								</div>
+								<div class = "typehead">
+									<p class = "type">FILLER POST</p>
+								</div>								
+							</div>
+							<hr>
+							<div class = "postcontent">
+								<p>
+									<b>TEMPORARY</b><br>
+									1. Water the plant everyday during summer.<br>
+									2. Water the plant if the soil is already dry.<br>						
+								</p>
+							</div>
+							<div class = "voteCnt">
+								<p id = "upCnt"> 0 </p><p> &#8679 </p>
+								<p id = "downCnt"> 0 </p><p> &#8681 </p>
+							</div>
+							<div class = "btn">	
+								<button class = "buttons cmnt">
+									<p class = "cmntlbl"> &#x1F5E8 </p>
+								</button>				
+								<button class = "buttons up">
+									<p class = "upvote"> &#8679 </p>
+								</button>
+								<button class = "buttons down">
+									<p class = "downvote"> &#8681 </p>
+								</button>
+							</div>
+							<a id = "comms" href="viewPostM.html">View Comments</a>	
+							<br><br> -->
+						</div>
+
+						<!-- <div class = "pContribution" id = "c1">
+							<div class = "posthead">
+								<div class = "poster">
+									<div class = lefthead>
+										<a href = "AndreiM.html" title = "Andrei De La Cruz">
+										<img id = "PFP" src = "images/defaultPFP.png" width = "50" height = "50">
+										</a>
+									</div>
+									<div class = "righthead">
+										<a class = "person" href = "AndreiM.html" title = "Andrei De La Cruz"> @ajm_ </a>
+										<p class = "date">12-30-2020</p>
+									</div>
+								</div>
+								<div class = "typehead">
+									<p class = "type">CONTRIBUTION</p>
+								</div>								
+							</div>
+							<hr>
+							<div class = "postcontent">
+								<p>
+									1. Water the plant everyday during summer.<br>
+									2. Water the plant if the soil is already dry.<br>						
+								</p>
+							</div>
+							<div class = "voteCnt">
+								<p id = "upCnt"> 0 </p><p> &#8679 </p>
+								<p id = "downCnt"> 0 </p><p> &#8681 </p>
+							</div>
+							<div class = "btn">	
+								<button class = "buttons cmnt">
+									<p class = "cmntlbl"> &#x1F5E8 </p>
+								</button>				
+								<button class = "buttons up">
+									<p class = "upvote"> &#8679 </p>
+								</button>
+								<button class = "buttons down">
+									<p class = "downvote"> &#8681 </p>
+								</button>
+							</div>
+							<a id = "comms" href="viewPostM.html">View Comments</a>	
+							<br><br>
+						</div>
+			
+						<div class ="pQuestion">
+							<div class = "posthead">
+								<div class = "poster">
+									<div class = lefthead>
+										<a href = "myAccount.html">
+										<img id = "PFP" src = "images/defaultPFP.png" width = "50" height = "50">
+										</a>
+									</div>
+									<div class = "righthead">
+										<a class = "person" href = "myAccount.html"> Me </a>
+										<p class = "date">09-01-2020</p>
+									</div>
+								</div>
+								<div class = "typehead">
+									<p class = "type">QUESTION</p>
+								</div>
+							</div>
+							<hr>
+							<div class = "postcontent">
+								<p>
+									Do fortune plants survive in cold areas?
+								</p>
+							</div>
+							<div class = "voteCnt">
+								<p id = "upCnt"> 0 </p><p> &#8679 </p>
+								<p id = "downCnt"> 0 </p><p> &#8681 </p>
+							</div>
+							<div class = "btn">
+								<button class = "buttons cmnt">
+									<p class = "cmntlbl"> &#x1F5E8 </p>
+								</button>
+								<button class = "buttons up">
+									<p class = "upvote"> &#8679 </p>
+								</button>
+								<button class = "buttons down">
+									<p class = "downvote"> &#8681 </p>
+								</button>							
+								<button class = "buttons edit">
+									<p class = "editlbl"> &#9998 </p>
+								</button>
+								<button class = "buttons delete">
+									<p class = "deletelbl"> &#10006 </p>
+								</button>
+							</div>
+							<a id = "comms" href = "questionM.html">View Comments</a>
+							<br><br>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

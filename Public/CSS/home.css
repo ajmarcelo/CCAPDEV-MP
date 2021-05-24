@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+body {
+	background-image: url("images/homebg.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	height: 100%;
+	width: 100%; 
+	margin: 0px;		
+}
+
+.maintabs {
+	background-color: #8aa169;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.maintabs a {
+	margin-top: auto;
+	margin-bottom: auto;
+	padding: 12px 12px;
+	text-decoration: none;
+	color: #fff9dd;
+	text-align: center;
+	font-weight: 300;
+	font-size: 2.0vh;
+}
+
+.maintabs a:hover {
+	background-color: #d1a748;
+	color: #fff9dd;
+}
+
+.maintabs, .search {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#searchTitle {
+	font-size: 20vh;
+	color: #d1a748;
+	text-align: center;
+}
+
+.search {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);	
+}
+
+.searchbar {
+	border: 5px solid #d1a748;
+	color: #8aa169;
+	padding: 14px 28px;
+	cursor: pointer;				
+	width: 70%;
+	font-size: 4vh;
+	background-color: #fff9dd;
+	border-color: #d1a748;
+	border-radius: 12px;
+}
+
+.searchbar:hover, .searchbar:focus {
+	border: 5px solid #8aa169;
+	border-radius: 12px;
+	background-color: #fff9dd;
+}
+
+#searchButton {
+	border: 2px #d1a748;
+	color: #fff9dd;
+	padding: 10px 10px;
+	cursor: pointer;				
+	width: 13%;
+	font-size: 3vh;
+	background-color: #d1a748;
+	border-radius: 12px;
+}
+
+#searchButton:hover {
+	background-color: #8aa169;
+}

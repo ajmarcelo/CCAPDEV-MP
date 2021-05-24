@@ -1,0 +1,250 @@
+/* I. ACCOUNT RELATED PAGES: 3. View Account (Settings)*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+html, body {
+	background-image: url("images/myaccountbg.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+}
+
+img {
+	border: 3px solid grey;
+	border-radius: 50%;
+	margin: 5%;
+	width: 40%;
+	height: 50%;
+}
+
+a {
+	text-decoration: none;
+	color: #8aa169;
+	font-weight: normal;
+}
+
+h2, h4 {
+	margin: 0px;
+}
+
+h2 {
+	color: #2a2725;
+	font-size: 3.5vh;
+}
+
+h4 {
+	color: grey;
+	font-weight: normal;
+}
+
+button {
+	font: serif;
+	border: 2px solid black;
+	color: #8aa169;
+	cursor: pointer;
+	width: 50%;
+	height: 23%;
+	background-color: #fff9dd;
+	border-color: #8aa169;
+	border-radius: 12px;
+}
+
+button:hover {
+	background-color: #8aa169;
+	color: white;
+}
+
+label.lbl {
+	text-align: left;
+}
+
+.maintabs, .type, h2, h4, button, .lbl {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#bio, #fName, #lName, #curr-pass, #birthday, #curr-loc, #email, #business, #years, .error {
+	font-family: 'Lato', sans-serif;
+}
+
+.maintabs {
+	background-color: #8aa169;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.maintabs a {
+	margin-top: auto;
+	margin-bottom: auto;
+	padding: 12px 12px;
+	text-decoration: none;
+	color: #fff9dd;
+	text-align: center;
+	font-weight: 300;
+	font-size: 2.0vh;
+}
+
+.maintabs a:hover {
+	background-color: #d1a748;
+	color: #fff9dd;
+}
+
+.content {
+	font-size: 2.3vh;
+}
+
+.content, .settings {
+	width: 75%;
+	height: 85%;
+	float: left;
+}
+
+.settings {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.lbl {
+	color: #708328;
+	font-weight: bold;
+	font-size: 2.3vh;
+}
+
+.info {
+	background-color: #e5c469;
+	border-radius: 0% 50px 50px 0%;
+	padding: 5%;
+}
+
+.text {
+	margin: 3%;
+}
+
+.typehead {
+	border: 1px solid #a7bb81;
+	background-color: #a7bb81;
+	border-radius: 50px;
+	padding: 2% 5%;
+}
+
+.type {
+	font-weight: bold;
+	color: #fff9dd;
+	display: flex;
+	justify-content: center;
+	margin: 0%;
+}
+
+
+.contacts {
+	background-color: #fff9dd;
+	border: 5px solid #e5c469;
+	width: 45%;
+}
+
+.contacts, #bio {
+	justify-content: center;
+	margin: 5%;
+	padding: 1%;
+	border-radius: 50px;
+}
+
+#parentSettings {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 93.4%;
+}
+
+#left, #mid, #right {
+	display: flex;
+	flex-direction: column;
+	padding: 2%;
+}
+
+#left, #right {
+	background-color: #d1a748;
+}
+
+#left {
+	border-radius: 50px 0% 0% 50px;
+	width: 25%;
+	justify-content: center;
+	align-items: center;
+}
+
+#mid {
+	background-color: rgba(255, 249, 221, 0.7);	/* #fff9dd; */
+	width: 45%;
+	justify-content: center;
+	align-items: center;
+}
+
+#right {
+	width: 30%;
+	border-radius: 0% 50px 50px 0%;
+	justify-content: center;
+}
+
+#pfp {
+	background-color: #fff9dd;
+	border: 3px solid #a7bb81;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 5%;
+	padding: 5%;
+	padding-top: 0%;
+	width: 85%;
+}
+
+#fName, #lName, #curr-pass, #birthday, #curr-loc, #email, #business, #years {
+	background-color: #fff9dd;
+	color: #555251;
+	border-radius: 50px;
+	font-weight: normal;
+	margin: 3%;
+	margin-left: 0%;
+	padding: 1% 3%;
+	font-size: 2.0vh;
+}
+
+#bio {
+	background-color: #fff9dd;
+	border: 5px solid #8aa169;
+	width: 85%;
+	height: 60%;
+}
+
+#bio {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#t1 {
+	text-align: justify;
+	color: #2a2725;
+}
+
+#t2 {
+	text-align: center;
+}
+
+#c1, #c2 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/*div.info p {
+	display: inline;
+	font-weight: bold;
+}*/

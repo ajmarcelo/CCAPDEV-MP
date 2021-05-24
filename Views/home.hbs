@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> Home </title>
+		<meta name="description" content="Home Page for Viewers">
+
+		<link rel = "stylesheet" type = "text/css" href = "CSS/home.css">
+	</head>
+	<body id="homeVBody">
+		<!-- Main Tabs -->
+		{{#if role}}
+			{{> headerM}}
+		{{else}}
+			{{> headerV}}
+		{{/if}}
+
+		<div class="search">
+			<h1 id="searchTitle"> Plantheta </h1>
+			<input class="searchbar" type="text" placeholder="Search here..." id="search" name="search">	
+			<br>
+			<button id="searchButton">Search</button>
+		</div>
+
+		<script>
+			function clicksearch ()
+			{
+				var sBar = document.getElementById ("search");
+				location.href = "searchResultsM.html";
+			}	
+			var sButton = document.getElementById("searchButton");
+			sButton.onclick = clicksearch;
+		</script>	
+	</body>
+</html>

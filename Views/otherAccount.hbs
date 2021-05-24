@@ -1,0 +1,56 @@
+<!-- I. ACCOUNT RELATED PAGES: 3. View Account (Settings) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{fName}} {{lName}}</title>
+	<link rel = "stylesheet" type = "text/css" href = "CSS/accounts.css">
+</head>
+<body>
+	<!-- Main Tabs -->
+	{{#if role}}
+		{{> headerM}}
+	{{else}}
+		{{> headerV}}
+	{{/if}}
+
+	<div id = "parentSettings">
+		<div class = "settings">
+			<div class = "content" id = "left">
+				<!-- <p id =  "s1">Left content</p> -->
+				<div class = "typehead">
+					<p class = "type">{{role}}</p>
+				</div>
+				<div id = "pfp">
+					<img src = "images/defaultPFP.png" alt = "Avatar">
+					<h2>{{fName}} {{lName}}</h2>
+					<h4>{{username}}</h4>
+				</div>
+			</div>
+			<div class = "content" id = "mid">
+				<div id = "bio">
+					<p class = "text" id = "t1">{{bio}}</p>
+				</div>
+			</div>
+			<div class = "content" id = "right">
+				<!-- <p id = "s2">Right content</p> -->
+				<div class = "info">
+					<!-- <label for = "fName" class = "lbl">First name: </label><p id = "fName">Kaeya</p>
+
+					<label for = "lName" class = "lbl">Last name: </label><p id = "lName">Alberich</p> -->
+
+					<label for = "birthday" class = "lbl">Birthday: </label><p id = "birthday">{{birthday}}</p>
+
+					<label for = "location" class = "lbl">Country: </label><p id = "curr-loc">{{location}}</p>
+
+					<label  for = "email" class = "lbl">Email: </label><p id = "email">{{email}}</p>
+
+					<label for = "business" class = "lbl">Business: </label><p id = "business">{{business}}</p>
+
+					<label for = "years" class = "lbl">Years of business: </label><p id = "years">{{years}}</p>
+				</div>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>

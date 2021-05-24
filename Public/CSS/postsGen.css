@@ -1,0 +1,178 @@
+/* Styles for posts in general (Includes Viewers view) */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+body {
+	background-image: url("images/fplantbg.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover; 
+	height: 100%;
+	width: 100%; 
+	margin: 0;
+}
+
+p {
+	margin: 2%;
+	font-size: 2.2vh;
+}
+
+hr {
+	margin: 0;
+}
+
+h2 {
+	font-size: 3.8vh;
+}
+
+.maintabs, #pTitle, .pDesc, .person, .date, .type, #comms {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.addInfo, .postcontent, .voteCnt {
+	font-family: 'Lato', sans-serif;
+}
+
+.maintabs {
+	background-color: #8aa169;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.maintabs a {
+	margin-top: auto;
+	margin-bottom: auto;
+	padding: 12px 12px;
+	text-decoration: none;
+	color: #fff9dd;
+	text-align: center;
+	font-weight: 300;
+	font-size: 2.0vh;
+}
+
+.maintabs a:hover {
+	background-color: #d1a748;
+	color: #fff9dd;
+}
+
+.typehead {
+	border: 1px solid #d1a748;
+	background-color: #d1a748;
+	border-radius: 50px;
+	margin: 2% 3%;
+	padding: 0% 2%;
+	display: flex;
+	align-items: center;
+}
+
+.type {
+	font-weight: bold;
+	color: #fff9dd;
+	margin: revert;
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+.posthead {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.poster {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 2;
+}
+
+.lefthead {
+	margin: 1%;
+}
+
+.righthead {
+	display: flex;
+	flex-direction: column;
+	margin-top: 1.5%;
+	width: 100%;
+}
+
+.date {
+	margin: 0;
+	color: grey;
+}
+
+.person {
+	text-decoration: none;
+	font-size: 2.5vh;
+	font-weight: bold;
+	color: #d1a748;
+	justify-content: center;
+	align-items: center;
+	margin-top: 0.5%;
+}
+
+.pQuestion, .pContribution {
+	margin: 20px;
+	background-color: rgb(248, 248, 248);
+	border-style: solid;
+	border-color: #006b38;
+	border-width: 3px;
+	border-radius: 7px;
+}
+
+.voteCnt {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	background-color: #d4d4d3;
+	border-radius: 50px;
+	width: 10%;
+	padding: 0% 1%;
+}
+
+.voteCnt {
+	margin: 1% 2%;
+}
+
+#pWall {
+	background-color: rgba(209, 167, 72, 0.5);	/* #d1a748; */
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	height: 680px;
+	overflow: auto;
+}
+
+#upCnt, #downCnt {
+	font-weight: bold;
+}
+
+#page {
+	width: 100%;
+}
+
+#pMain {
+	display: flex;
+}
+
+#PFP {
+	border-radius: 50px;
+}
+
+#comms {
+	margin: 20px;
+	font-size: 2.0vh;
+}
+
+#parent {
+	margin: 0;
+	padding: 2% 2%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 95%;	
+}
