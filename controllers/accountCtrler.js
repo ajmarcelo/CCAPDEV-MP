@@ -126,7 +126,7 @@ const accountCtrler = {
             }
         });  
 
-    },
+    }
 
     // getDeleteAccount: function(req, res) {
     //     var query = {username: req.session.uname};
