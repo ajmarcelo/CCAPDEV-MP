@@ -25,7 +25,7 @@ h2 {
 	font-size: 3.8vh;
 }
 
-.maintabs, #pTitle, .pDesc, .person, .date, .type, #comms {
+.maintabs, #pTitle, .pDesc, .person, .date, .type, #comms, label {
 	font-family: 'Montserrat', sans-serif;
 }
 
