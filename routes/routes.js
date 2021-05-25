@@ -38,7 +38,7 @@ app.get ("/profile/:username", accountCtrler.getAccount);
 //app.get ("/contactus", contactUsCtrler.getContactUs);
 // app.post ("/contactus", );
 
-//app.get ("/aboutus", ctrler.getAboutUs);
+app.get ("/aboutus", ctrler.getAboutUs);
 
 app.get ("/logout", logOutCtrler.getLogOut);
 
