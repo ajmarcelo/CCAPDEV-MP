@@ -35,7 +35,7 @@ app.get ("/profile/:username", accountCtrler.getAccount);
 
 //app.get ("/toc", ctrler.getTableOfContents);
 
-//app.get ("/contactus", contactUsCtrler.getContactUs);
+app.get ("/contact", contactUsCtrler.getContactUs);
 // app.post ("/contactus", );
 
 app.get ("/aboutus", ctrler.getAboutUs);
