@@ -33,7 +33,7 @@ app.get ("/profile/:username", accountCtrler.getAccount);
 // app.get ("/plantsection/:plant", );
 // app.get ("/viewpost", );
 
-app.get ("/toc", ctrler.getTableOfContents);
+//app.get ("/toc", ctrler.getTableOfContents);
 
 app.get ("/contact", contactUsCtrler.getContactUs);
 // app.post ("/contactus", );
