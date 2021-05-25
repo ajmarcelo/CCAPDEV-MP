@@ -8,41 +8,29 @@ const postCtrler = {
     },
 
     postPostForm: function (req, res) {
-         //start temporary
-        var errors = validationResult(req);
+        res.render('postForm', details);
 
-        if (!errors.isEmpty()) {
-            errors = errors.errors;
-
-            var details = {};
-
-            for(i = 0; i < errors.length; i++)
-                details[errors[i].param + 'Error'] = errors[i].msg;
-        // end temporary    
-            res.render('postForm', details);
+        var date = req.body.today;
+        var plant = req.body.plant;
+        var postType = req.body.ptype;
+        var content = req.body.msg;
+        var file = req.body.imgf;
+        
+        var post = {
+            date: date,
+            plant: plant,
+            postType: postType,
+            content: content,
+            file: file
         }
 
-        else {
-            var date = req.body.today;
-            var plant = req.body.plant;
-            var postType = req.body.ptype;
-            var content = req.body.msg;
-            var file = req.body.imgf;
-            
-            var post = {
-                date: date,
-                plant: plant,
-                postType: postType,
-                content: content,
-                file: file                   
-            }
+        db.insertOne(Post, post, function(flag) {
+            if(flag)
+                res.render ('plant');
 
-                db.insertOne(Post, post, function(flag) {
-                    if(flag) {
-                        res.render('postForm');
-                    }
-                });
-        }   	
+            else
+                res.render ('error');
+        });	
     },
 
     // editPost: function (req, res) {

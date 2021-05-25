@@ -7,6 +7,11 @@ var PostTab = new mongoose.Schema ({
 		required: false
 	},
 
+	id: {
+		type: String,
+		required: true
+	},
+
 	date: {
 		type: Date,
 		required: true
