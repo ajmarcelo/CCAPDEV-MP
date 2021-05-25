@@ -1,6 +1,6 @@
-const db = require('../Model/db.js');
+const db = require('../model/db.js');
 
-const Post = require('../Model/postCQ.js');
+const Post = require('../model/postCQ.js');
 
 const postCtrler = {
     getPostForm: function (req, res) {

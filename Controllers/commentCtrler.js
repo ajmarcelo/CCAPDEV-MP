@@ -1,6 +1,6 @@
-const db = require('../Model/db.js');
+const db = require('../model/db.js');
 
-const Comment = require('../Model/postCmnts.js');
+const Comment = require('../model/postCmnts.js');
 
 const commentCtrler = {
     // addComment: function (req, res) {

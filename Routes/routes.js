@@ -1,13 +1,13 @@
 const express = require ("express");
-const accountCtrler = require("../Controllers/accountCtrler.js");
-const contactUsCtrler = require("../Controllers/contactUsCtrler.js");
-const ctrler = require ("../Controllers/ctrler.js");
-const homeCtrler = require ("../Controllers/homeCtrler.js");
-const logInCtrler = require ("../Controllers/logInCtrler.js");
-const logOutCtrler = require ("../Controllers/logOutCtrler.js");
-const postCtrler = require ("../Controllers/postCtrler.js");
-const signUpCtrler = require ("../Controllers/signUpCtrler.js");
-const validation = require ("../Helpers/validation.js");
+const accountCtrler = require("../controllers/accountCtrler.js");
+const contactUsCtrler = require("../controllers/contactUsCtrler.js");
+const ctrler = require ("../controllers/ctrler.js");
+const homeCtrler = require ("../controllers/homeCtrler.js");
+const logInCtrler = require ("../controllers/logInCtrler.js");
+const logOutCtrler = require ("../controllers/logOutCtrler.js");
+const postCtrler = require ("../controllers/postCtrler.js");
+const signUpCtrler = require ("../controllers/signUpCtrler.js");
+const validation = require ("../helpers/validation.js");
 // Will add more later
 
 const app = express();

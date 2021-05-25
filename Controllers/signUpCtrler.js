@@ -3,9 +3,9 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-const db = require('../Model/db.js');
+const db = require('../model/db.js');
 
-const User = require('../Model/user.js');
+const User = require('../model/user.js');
 
 const signupCtrler = {
     getSignUp: function (req, res) {

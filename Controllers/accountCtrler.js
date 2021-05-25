@@ -1,6 +1,6 @@
-const db = require('../Model/db.js');
+const db = require('../model/db.js');
 
-const User = require('../Model/user.js');
+const User = require('../model/user.js');
 
 const accountCtrler = {
     getAccount: function (req, res) {

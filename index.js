@@ -6,8 +6,8 @@ const mongoose = require ("mongoose");
 const mongoConnect = require ("connect-mongo");
 const bodyParser = require ("body-parser");
 const validator = require ("validator");
-const routes = require ("./Routes/routes.js");
-const db = require ("./Model/db.js");
+const routes = require ("./routes/routes.js");
+const db = require ("./model/db.js");
 const multer = require ("multer");
 const session = require('express-session');
 
@@ -33,7 +33,7 @@ app.engine ("hbs", expresshbs ({
 app.use (bodyParser.urlencoded ({extended:true}));
 app.use (bodyParser.json());
 app.set ("view engine", "hbs");
-app.use (express.static ("Public"));
+app.use (express.static ("public"));
 app.use ("/", routes);
 
 app.use (function (req, res) {
