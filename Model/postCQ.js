@@ -28,7 +28,7 @@ var PostTab = new mongoose.Schema ({
 	},
 
 	file: { 
-		type: File, //temporary
+		type: String,
 		required: false
 	}
 });

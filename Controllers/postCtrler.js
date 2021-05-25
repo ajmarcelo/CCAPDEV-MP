@@ -29,21 +29,19 @@ const postCtrler = {
             var content = req.body.msg;
             var file = req.body.imgf;
             
-            function(req, res) {
-                var post = {
-                    date: date,
-                    plant: plant,
-                    postType: postType,
-                    content: content,
-                    file: file                   
-                }
+            var post = {
+                date: date,
+                plant: plant,
+                postType: postType,
+                content: content,
+                file: file                   
+            }
 
                 db.insertOne(Post, post, function(flag) {
                     if(flag) {
                         res.render('postForm');
                     }
                 });
-            }
         }   	
     },
 

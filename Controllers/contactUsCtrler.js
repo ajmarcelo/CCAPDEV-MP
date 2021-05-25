@@ -1,7 +1,7 @@
 const contactUsCtrler = {
     getContactUs: function (req, res) {
         res.render('contact');
-    }
+    },
 
     postContactUs: function (req, res) {
           //start temporary
@@ -21,17 +21,14 @@ const contactUsCtrler = {
         else {
             var feedback = req.body.msg;
             
-            function(req, res) {
                 var fback = {
  					feedback: feedback                  
                 }
-
                 db.insertOne(ContactUs, fback, function(flag) {
                     if(flag) {
                         res.render('contact');
                     }
                 });
-            }
         }   	   	
     }
 }
