@@ -1,5 +1,6 @@
 const express = require ("express");
 const accountCtrler = require("../controllers/accountCtrler.js");
+const commentCtrler = require("../controllers/commentCtrler.js");
 const contactUsCtrler = require("../controllers/contactUsCtrler.js");
 const ctrler = require ("../controllers/ctrler.js");
 const homeCtrler = require ("../controllers/homeCtrler.js");
@@ -14,12 +15,10 @@ const app = express();
 
 app.get ("/", ctrler.getIndex);
 app.get ("/home", homeCtrler.getHome);
-
 //app.get ("/results", );	// Search results (?)
 
 app.get ("/signup", signUpCtrler.getSignUp);
 //app.post ("/signup", validation.signUpValidation(), signUpCtrler.postSignUp);
-
 app.get ("/getCheckUsername", signUpCtrler.getCheckUsername);
 //app.get ("/sucess", successCtrler.getSuccess);
 
@@ -29,18 +28,20 @@ app.post("/login", logInCtrler.postLogIn);
 app.get ("/profile/:username", accountCtrler.getAccount);
 // app.get ("/profileset/:username", );
 
-// app.get ("/postform", );
+app.get ("/postform", postCtrler.getPostForm);
 // app.post ("/postform", );	// Both for posting and editing then posting (?)
 
 // app.get ("/plantsection/:plant", );
 // app.get ("/viewpost", );
 
-// app.get ("/tableofcontents", );
+app.get ("/toc", ctrler.getTableOfContents);
 // app.get ("/aboutus", );
 
-// app.get ("/contactus", );
+app.get ("/contactus", contactUsCtrler.getContactUs);
 // app.post ("/contactus", );
 
- app.get ("/logout", logOutCtrler.getLogOut);
+app.get ("/aboutus", ctrler.getAbouttUs);
+
+app.get ("/logout", logOutCtrler.getLogOut);
 
 module.exports = app;
