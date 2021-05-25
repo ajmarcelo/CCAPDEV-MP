@@ -9,7 +9,7 @@
 <body>
 
 	<style>
-		#fName, #lName, #curr-pass, #birthday, #curr-loc, #email, #business, #years {
+		#fName, #lName, #password, #birthday, #country, #email, #business, #years {
 			font-size: 1.9vh;
 			border: none;
 			width: 90%;
@@ -93,28 +93,28 @@
 				<div class = "info">
 					<form>
 						<label for = "fName" class = "lbl">First name: </label>
-						<input type = "text" id = "fName" name = "fName" placeholder = "First Name">{{fName}}<br>
+						<input type = "text" id = "fName" name = "fName" placeholder = "First Name" value="{{fName}}"><br> <!-- correct format -->
 
 						<label for = "lName" class = "lbl">Last name: </label>
-						<input type = "text" id = "lName" name = "lName" placeholder = "Last Name"><br>
+						<input type = "text" id = "lName" name = "lName" placeholder = "Last Name" value="{{lName}}"><br>
 
 						<label for = "password" class = "lbl">Password: </label><br>
-						<input type = "password" id = "curr-pass" name = "curr-pass" placeholder = "Password"><br>
+						<input type = "password" id = "password" name = "password" placeholder = "Password" value="{{password}}"><br>
 
 						<label for = "birthday" class = "lbl">Birthday: </label><br>
-						<input type = "date" id = "birthday" name = "birthday" placeholder = "01/01/2021"><br>
+						<input type = "date" id = "birthday" name = "birthday" placeholder = "01/01/2021" value="{{birthday}}"><br>
 
-						<label for = "location" class = "lbl">Location: </label><br>
-						<input type = "text" id = "curr-loc" name = "curr-loc" placeholder = "Country"><br>
+						<label for = "country" class = "lbl">Country: </label><br>
+						<input type = "text" id = "country" name = "country" placeholder = "Country" value="{{country}}"><br>
 
 						<label  for = "email" class = "lbl">Email: </label><br>
-						<input type = "email" id = "email" name = "email" placeholder = "example@mail.com"><br>
+						<input type = "email" id = "email" name = "email" placeholder = "example@mail.com" value="{{email}}"><br>
 
 						<label for = "business" class = "lbl">Business: </label><br>
-						<input type = "text" id = "business" name = "business" placeholder = "Business Name"><br>
+						<input type = "text" id = "business" name = "business" placeholder = "Business Name" value="{{businessName}}"><br>
 
 						<label for = "years" class = "lbl">Years of business: </label>
-						<input type = "text" id = "years" name = "years" placeholder = "Years of business">
+						<input type = "text" id = "years" name = "years" placeholder = "Years of business" value="{{businessYrs}}">
 					</form>
 				</div>
 			</div>

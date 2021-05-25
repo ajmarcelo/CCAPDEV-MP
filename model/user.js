@@ -17,6 +17,11 @@ var UserTab = new mongoose.Schema ({
 		required: true
 	},
 
+	bio: {
+		type: String,
+		required: false
+	},
+
 	password: {
 		type: String,
 		required: true
