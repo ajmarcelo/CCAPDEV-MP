@@ -93,14 +93,14 @@ const accountCtrler = {
         var query = { username: req.session.uname };
 
         var update = {
-            fName: req.body.fName;
-            lName: req.body.lName;
-            password: req.body.password;
-            birthday: req.body.birthday;
-            country: req.body.country;
-            email: req.body.email;
-            businessName: req.body.business;
-            businessYrs: req.body.years;
+            fName: req.body.fName,
+            lName: req.body.lName,
+            password: req.body.password,
+            birthday: req.body.birthday,
+            country: req.body.country,
+            email: req.body.email,
+            businessName: req.body.business,
+            businessYrs: req.body.years
         };
 
         var details = {};

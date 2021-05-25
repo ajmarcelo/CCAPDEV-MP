@@ -31,7 +31,7 @@ const postCtrler = {
             else
                 res.render ('error');
         });	
-    },
+    }
 
     // editPost: function (req, res) {
 
