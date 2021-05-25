@@ -128,17 +128,17 @@ const accountCtrler = {
 
     },
 
-    getDeleteAccount: function(req, res) {
-        var query = {username: req.session.uname};
+    // getDeleteAccount: function(req, res) {
+    //     var query = {username: req.session.uname};
 
-        db.findOne(User, query, '', function (user) {
-                res.render('/'); //temporary
-        }); 
-    },
+    //     db.findOne(User, query, '', function (user) {
+    //             res.render('/'); //temporary
+    //     }); 
+    // },
 
-    postDeleteAccount: function(req, res) {
+    // postDeleteAccount: function(req, res) {
 
-    }
+    // }
 }
 
 module.exports = accountCtrler;

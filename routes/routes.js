@@ -24,7 +24,7 @@ app.get ("/getCheckUsername", signUpCtrler.getCheckUsername);
 app.get("/login", logInCtrler.getLogIn);
 app.post("/login", logInCtrler.postLogIn);
 
-app.get ("/profile/:username", accountCtrler.getAccount);
+//app.get ("/profile/:username", accountCtrler.getAccount);
 // app.get ("/profileset/:username", );
 
 //app.get ("/postForm", postCtrler.getPostForm);
