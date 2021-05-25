@@ -26,7 +26,7 @@ app.use (session ({
 }));
 
 app.engine ("hbs", expresshbs ({
-	defaultLayout: '',
+    defaultLayout: '',
     extname: '.hbs'
 }));
 
