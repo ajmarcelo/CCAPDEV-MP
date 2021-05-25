@@ -12,8 +12,8 @@ const validation = require ("../Helpers/validation.js");
 
 const app = express();
 
-app.get ("/", ctrler.getIndex);	// Home/Search page (?)
-//app.post ("/", );
+app.get ("/", ctrler.getIndex);
+app.get ("/home", homeCtrler.getHome);
 
 //app.get ("/results", );	// Search results (?)
 
