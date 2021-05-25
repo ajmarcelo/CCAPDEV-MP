@@ -9,7 +9,6 @@ const logOutCtrler = require ("../controllers/logOutCtrler.js");
 const postCtrler = require ("../controllers/postCtrler.js");
 const signUpCtrler = require ("../controllers/signUpCtrler.js");
 const validation = require ("../helpers/validation.js");
-// Will add more later
 
 const app = express();
 
@@ -28,19 +27,18 @@ app.post("/login", logInCtrler.postLogIn);
 app.get ("/profile/:username", accountCtrler.getAccount);
 // app.get ("/profileset/:username", );
 
-app.get ("/postform", postCtrler.getPostForm);
+//app.get ("/postForm", postCtrler.getPostForm);
 // app.post ("/postform", );	// Both for posting and editing then posting (?)
 
 // app.get ("/plantsection/:plant", );
 // app.get ("/viewpost", );
 
-app.get ("/toc", ctrler.getTableOfContents);
-// app.get ("/aboutus", );
+//app.get ("/toc", ctrler.getTableOfContents);
 
-app.get ("/contactus", contactUsCtrler.getContactUs);
+//app.get ("/contactus", contactUsCtrler.getContactUs);
 // app.post ("/contactus", );
 
-app.get ("/aboutus", ctrler.getAbouttUs);
+//app.get ("/aboutus", ctrler.getAboutUs);
 
 app.get ("/logout", logOutCtrler.getLogOut);
 
