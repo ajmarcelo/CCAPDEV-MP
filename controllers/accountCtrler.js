@@ -126,19 +126,40 @@ const accountCtrler = {
             }
         });  
 
+    },
+
+    getDeleteAccount: function(req, res) {
+        var query = {username: req.session.uname};
+
+        db.findOne(User, query, '', function (user) {
+            res.render('/confirmDelete', user);
+        }); 
+    },
+
+    postDeleteAccount: function(req, res) {
+        var query = {username: req.body.uname};
+
+        db.findOne(User, query, '', function(user) {
+            db.deleteMany(Comment, {username: user.username}, function(result) {
+                db.deleteMany(Post, {username: user.username}, function(result){
+                    db.deleteOne(User, {username: user.username}, function(flag){
+                        if(flag)
+                        {
+                            req.session.destroy(function(error){
+                                if (error)
+                                    throw error;
+                                res.redirect('/');
+                            });
+                        }
+                        else
+                        {
+                            res.redirect('/myAccount');
+                        }
+                    });
+                });
+            });   
+        });
     }
-
-    // getDeleteAccount: function(req, res) {
-    //     var query = {username: req.session.uname};
-
-    //     db.findOne(User, query, '', function (user) {
-    //             res.render('/'); //temporary
-    //     }); 
-    // },
-
-    // postDeleteAccount: function(req, res) {
-
-    // }
 }
 
 module.exports = accountCtrler;

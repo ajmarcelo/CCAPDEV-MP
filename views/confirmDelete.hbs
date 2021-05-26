@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> Delete Account </title>
+		<!-- <link rel="stylesheet" type="text/css" href= "design.css"> -->	
+		<meta name="description" content="Delete Account Confirmation Page">
+		<meta name="author" content="Andrea Jean Marcelo">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+			body {
+				background-image: url("images/loginbg.jpg");
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+    			background-position: center;
+    			background-size: cover;
+    			height: 100%;
+    			width: 100%;
+				margin:0;			
+			}
+
+			h1 {
+				font-size: 10vh;
+				color: #fff9dd;
+			}
+
+			button {
+  				border: 2px solid black;
+  				color: white;
+  				padding: 2px 24px;
+  				cursor: pointer;				
+				width: 35%;
+				font-size: 3vh;
+				background-color: #8aa169;
+				border-color: #8aa169; 
+				border-radius: 12px;
+			}
+
+			button:hover {
+				border-color: #8aa169;
+				background-color: #fff9dd;
+				color: #8aa169;
+			}
+
+			.maintabs, #pagetitle, #confirm {
+				font-family: 'Montserrat', sans-serif;
+			}
+
+			.cDeleteContents {
+				position: absolute;
+				width:40%;
+				height: 70%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: #d1a748;
+				text-align: center;
+				border-radius: 12px;
+				align-items: center;
+				justify-content: center;
+
+			}
+
+			.error {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+			}
+
+			#err {
+				margin: 1%;
+				padding: 1%;
+				color: #800000;
+				border-radius: 50px;
+				font-weight: bold;
+				width: 80%;
+			}
+
+			.accdets {
+  				border: 3px solid #8aa169;
+  				color: #8aa169;
+  				padding: 14px 28px;
+  				cursor: pointer;				
+				width: 30%;
+				font-size: 17px;
+				background-color: #fff9dd;
+				border-color: #8aa169;
+				border-radius: 12px;
+			}
+
+			.accdets:hover, .accdets:focus {
+				border: 3px solid #d1a748;
+				border-radius: 12px;
+				background-color: #fff9dd;
+			}
+			
+			#proofNote {
+				font-family: 'Lato', sans-serif;
+				color: black;
+			}									
+		</style>
+	</head>
+
+	<body id="loginBody">
+		<div class="cDeleteContents">
+			<h1 id="pagetitle"> Delete Account </h1>
+			<p id = "confirmNote">Input your username to confirm.</p>			
+			<form class="form">
+				<input class="accdets" type="text" placeholder="Username" id="uname" name="uname">
+				<br><br>		
+			</form>
+			<div class = "error">
+				<p id = "err">{{error}}</p>
+			</div>
+			<br>		
+			<button id="confirm">Confirm</button>
+			<br><br>	
+		</div>	
+		<script>
+			function clickConfirm ()
+			{
+				var uname = document.getElementById ("uname");
+				location.href = "/";
+			}	
+			var loginButton = document.getElementById("confirm");
+			confirm.onclick = clickConfirm;
+		</script>
+	</body>
+</html>
