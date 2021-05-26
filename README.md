@@ -15,6 +15,7 @@ Plantheta is an open-forum-like website about plants. Members of the Plantheta c
 4. Change the directory to the folder where the project is downloaded.
 5. Install the modules required for the project to run successfully: run the command ```npm install``` in the command prompt.
 6. Run the website application: execute ```node index.js```.  
+7. Type http://localhost:3000 on your browser.
 
 ### Online (Through Heroku Link) 
 - Click https://plantheta.herokuapp.com/
