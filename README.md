@@ -1,7 +1,6 @@
 # [S11G27] Plantheta
 
-![alt text](https://github.com/ajmarcelo/CCAPDEV-MP/blob/main/planthetaIcon.png?raw=true)
-![GitHub Logo](/images/planthetaIcon.png)
+<img align="left" width="200" height="200" src="https://github.com/ajmarcelo/CCAPDEV-mp/blob/main/public/images/planthetaIcon.png?raw=true">
 
 ## Plantheta
 Plantheta is an open-forum-like website about plants. Members of the Plantheta community are allowed to share their post, trivias, questions, and helpful tips about taking care of plants. Contribution posting is only allowed to the website's contributors. In this way, contributors could get to promote their business through helping the members and viewers of the website.  Plantheta aims to inform and help people take care of their plants and promote the contributors' plant businesses.  
