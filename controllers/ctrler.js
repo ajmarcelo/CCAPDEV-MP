@@ -17,7 +17,7 @@ const ctrler = {
     getTableOfContents: function(req,res) {
         db.findMany (Plant, {}, '', function (result) {
             if (!result)
-                res.render('index'); // This is to load the page initially
+                res.render('index');
             else {
                 var details = {
                     plants: result
@@ -46,7 +46,7 @@ const ctrler = {
                 db.findMany(Post, {plant: pName}, '', function(result) {
                     details.posts = result;
                 });
-                
+
                 res.render('plant', details);
             }
 
