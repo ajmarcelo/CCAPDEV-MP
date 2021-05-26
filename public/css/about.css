@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
 body {				
-	background-image: url("images/aboutusbg.jpg");
+	background-image: url("../images/aboutusbg.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
