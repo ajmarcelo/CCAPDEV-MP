@@ -29,12 +29,12 @@ const ctrler = {
     },
 
     getPlantSection: function(req,res) {
-        var query = {plant: req.params.pName};
+        var query = {pName: req.params.pName};
 
         var details = {};
 
         db.findOne(Plant, query, '', function(result) {
-            if(result != null) {
+            if(result) {
                 details.pName = result.pName;
                 details.pScientific = result.pScientific;
                 details.pInOut = result.pInOut;
@@ -44,7 +44,7 @@ const ctrler = {
                 details.pFamily = result.pFamily;
                 details.pPhoto = result.pPhoto;
 
-                db.findMany(Post, query, '', function(result) {
+                db.findMany(Post, {plant: req.params.pName}, '', function(result) {
                     details.posts = result;
                 });
 
