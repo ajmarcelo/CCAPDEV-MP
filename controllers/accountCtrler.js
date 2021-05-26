@@ -118,7 +118,7 @@ const accountCtrler = {
                 details.businessName = result.businessName;
                 details.businessYrs = result.businessYrs;      
 
-                res.redirect('/myAccount', details);
+                res.render('myAccount', details);
             }
 
             else {
@@ -132,7 +132,7 @@ const accountCtrler = {
         var query = {username: req.session.uname};
 
         db.findOne(User, query, '', function (user) {
-            res.render('/confirmDelete', user);
+            res.render('confirmDelete', user);
         }); 
     },
 

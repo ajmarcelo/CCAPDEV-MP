@@ -33,8 +33,8 @@ app.post("/login", logInCtrler.postLogIn);
 // app.get ("/plantsection/:plant", );
 // app.get ("/viewpost", );
 
-// app.get ("/toc", ctrler.getTableOfContents);
-
+app.get ("/toc", ctrler.getTableOfContents);
+app.get("/plant/:pName", ctrler.getPlantSection);
 app.get ("/contact", contactUsCtrler.getContactUs);
 // app.post ("/contactus", );
 

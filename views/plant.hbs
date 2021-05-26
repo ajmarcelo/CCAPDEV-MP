@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title> Fortune Plant </title>
+		<title> {{pName}} </title>
 		<meta name="description" content="View a Specific Page for Members">
 		<meta name="author" content="Andrea Jean Marcelo">
 
@@ -23,10 +23,10 @@
 			<div id = "page">
 				<div id = "pMain">
 					<div class = "pInfo">
-						<div id = "pPic"><img src="images/fortuneplant.png" width = "200" height = "200"></div>
+						<div id = "pPic"><img src="{{pPhoto}}" width = "200" height = "200"></div>
 						<div id = "pBio">
 							<h2 id = "pTitle">{{pTitle}}</h2>
-							<p class = "addInfo"><b class = "pDesc">Scientific Name: </b>{{pName}}</p>
+							<p class = "addInfo"><b class = "pDesc">Scientific Name: </b>{{pScientific}}</p>
 							<p class = "addInfo"><b class = "pDesc">Outdoor/Indoor: </b>{{pInOut}}</p>
 							<p class = "addInfo"><b class = "pDesc">Watering Care: </b>{{pWater}}</p>
 							<p class = "addInfo"><b class = "pDesc">Origin: </b>{{pOrigin}}</p>

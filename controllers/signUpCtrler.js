@@ -55,7 +55,7 @@ const signupCtrler = {
 
                 db.insertOne(User, user, function(flag) {
                     if(flag) {
-                        res.redirect('/success?fName=' + fName +'&lName=' + lName + '&username=' + username);
+                        res.redirect('/login');
                     }
                 });
             });

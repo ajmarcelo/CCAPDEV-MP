@@ -21,16 +21,9 @@
 			<div class="tableofContents">
 				<h1 id="TofCtitle"> Table Of Contents </h1>
 				<br>
-				<a class="plants" id="plant1M" href="/plant">Fortune Plant</a>
-				<hr>
-				<a class="plants" id="plant2M" href="/plant">Oregano</a>
-				<hr>
-				<a class="plants" id="plant5M" href="/plant">Peperomia (Baby Rubber Plant)</a>
-				<hr>
-				<a class="plants" id="plant4M" href="/plant">Schefflera Umbrella Plant</a>
-				<hr>
-				<a class="plants" id="plant3M" href="/plant">Wandering Jew</a>
-				<hr>				
+				{{#each plants}}
+					{{> plantTOC}}
+				{{/each}}					
 			</div>	
 		</div>
 	</body>
