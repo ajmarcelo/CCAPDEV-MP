@@ -22,43 +22,7 @@
 		<div id = "parent">
 			<div id = "onePage">
 				<div id = "pCeiling">
-					<div id = "pPost">
-						<div class = "posthead">
-							<div class = "poster">
-								<div class = lefthead>
-									<a href = "AndreiM.html" title = "Andrei De La Cruz">
-									<img id = "PFP" src = "images/defaultPFP.png" width = "50" height = "50">
-									</a>
-								</div>
-								<div class = "righthead">
-									<!-- Trying to convert anchor tag(s) below this comment -->
-									<a class = "person" href = "AndreiM.html"> {{username}} </a>
-									<p class = "date">{{date}}</p>
-								</div>
-							</div>
-							<div class = "typehead">
-								<p class = "type">{{type}}</p>
-							</div>								
-						</div>
-						<hr>
-						<div class = "postcontent">
-							<p>
-								{{content}}		
-							</p>
-						</div>
-						<div class = "voteCnt">
-							<p id = "upCnt"> 0 </p><p> &#8679 </p>
-							<p id = "downCnt"> 0 </p><p> &#8681 </p>
-						</div>
-						{{#if role}}
-							{{#if owner}}
-								{{> myPostBtns}}
-							{{else}}
-								{{> otherPostBtns}}
-							{{/if}}
-						{{/if}}
-
-					</div>
+					{{> post}}
 				</div>
 				{{#if role}}
 					{{> writeCmnt}}
