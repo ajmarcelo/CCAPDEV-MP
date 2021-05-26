@@ -113,16 +113,15 @@
 			<h1 id="logintitle"> Log in </h1>
 			<form class="form">
 				<input class="accdets" type="text" placeholder="Username" id="uname" name="uname">
-				<br><br>		
+				<p id="unameError" class = "error">{{unameError}}</p>		
 				<input class="accdets" type="text" placeholder="Password" id="pword" name="pword">
-				<br><br>
+				<p id="pwordError" class = "error">{{pwordError}}</p>
 			</form>
 			<div class = "error">
 				<p id = "err">{{error}}</p>
-			</div>
-			<br>		
+			</div>		
 			<button id="loginbutton">Log in</button>
-			<br><br>
+			<br>
 			<a id="signup" href="/signup">Sign Up for Plantheta</a>
 			<br>		
 			<a id="viewer" href="/home">Proceed as Viewer</a>		

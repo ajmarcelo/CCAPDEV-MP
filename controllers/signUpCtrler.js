@@ -13,7 +13,6 @@ const signupCtrler = {
     },
 
     postSignUp: function (req, res) {
-        //start temporary
         var errors = validationResult(req);
 
         if (!errors.isEmpty()) {
@@ -23,7 +22,7 @@ const signupCtrler = {
 
             for(i = 0; i < errors.length; i++)
                 details[errors[i].param + 'Error'] = errors[i].msg;
-        // end temporary    
+
             res.render('signup', details);
         }
 
@@ -38,6 +37,7 @@ const signupCtrler = {
             var businessName = req.body.pbname;
             var businessYrs = req.body.byears;
             var proofLink = req.body.olink;
+            
             bcrypt.hash(pw, saltRounds, function(err, hash) {
 
                 var user = {

@@ -4,7 +4,6 @@ const contactUsCtrler = {
     },
 
     postContactUs: function (req, res) {
-          //start temporary
         var errors = validationResult(req);
 
         if (!errors.isEmpty()) {
@@ -14,7 +13,7 @@ const contactUsCtrler = {
 
             for(i = 0; i < errors.length; i++)
                 details[errors[i].param + 'Error'] = errors[i].msg;
-        // end temporary    
+
             res.render('contact', details);
         }
 

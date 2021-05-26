@@ -13,32 +13,35 @@ const validation = require ("../helpers/validation.js");
 const app = express();
 
 app.get ("/", ctrler.getIndex);
-app.get ("/home", homeCtrler.getHome);
-//app.get ("/results", );	// Search results (?)
+app.get ("/aboutus", ctrler.getAboutUs);
 
 app.get ("/signup", signUpCtrler.getSignUp);
-//app.post ("/signup", validation.signUpValidation(), signUpCtrler.postSignUp);
+app.post ("/signup", validation.signUpValid(), signUpCtrler.postSignUp);
 app.get ("/getCheckUsername", signUpCtrler.getCheckUsername);
-//app.get ("/sucess", successCtrler.getSuccess);
 
 app.get("/login", logInCtrler.getLogIn);
-app.post("/login", logInCtrler.postLogIn);
+app.post("/login", validation.logInValid(), logInCtrler.postLogIn);
+app.get ("/logout", logOutCtrler.getLogOut);
 
-//app.get ("/profile/:username", accountCtrler.getAccount);
-// app.get ("/profileset/:username", );
+app.get("/myAccount", accountCtrler.getMyAccount);
+app.get("/editAccount", accountCtrler.getEditAccount);
+app.post("/editAccount", validation.accountEditValid(), accountCtrler.postEditAccount);
+app.get("/deleteAccount", accountCtrler.getDeleteAccount);
+app.post("/deleteAccount", accountCtrler.postDeleteAccount);
+app.get("/otherAccount/:username", accountCtrler.getOtherAccount);
+
+
+app.get ("/home", homeCtrler.getHome);
+app.post ("/searchResults", validation.homeSearchValid(), homeCtrler.postHome);	// Search results (?)
 
 //app.get ("/postForm", postCtrler.getPostForm);
 // app.post ("/postform", );	// Both for posting and editing then posting (?)
-
 // app.get ("/viewpost", );
 
 app.get ("/toc", ctrler.getTableOfContents);
 app.get("/plant/:pName", ctrler.getPlantSection);
+
 app.get ("/contact", contactUsCtrler.getContactUs);
-// app.post ("/contactus", );
-
-app.get ("/aboutus", ctrler.getAboutUs);
-
-app.get ("/logout", logOutCtrler.getLogOut);
+app.post ("/contact", validation.contactUsValid(), contactUsCtrler.postContactUs);
 
 module.exports = app;
