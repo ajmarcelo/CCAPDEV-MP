@@ -40,14 +40,14 @@ const database = {
         model.findOne(query, projection, function(error, result) {
             if(error) return callback(false);
             return callback(result);
-        });
+        }).lean();
     },
 
     findMany: function(model, query, projection, callback) {
         model.find(query, projection, function(error, result) {
             if(error) return callback(false);
             return callback(result);
-        });
+        }).lean();
     },
 
     updateOne: function(model, filter, update) {

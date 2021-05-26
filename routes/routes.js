@@ -30,7 +30,6 @@ app.post("/login", logInCtrler.postLogIn);
 //app.get ("/postForm", postCtrler.getPostForm);
 // app.post ("/postform", );	// Both for posting and editing then posting (?)
 
-// app.get ("/plantsection/:plant", );
 // app.get ("/viewpost", );
 
 app.get ("/toc", ctrler.getTableOfContents);

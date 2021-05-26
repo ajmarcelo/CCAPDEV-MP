@@ -1,6 +1,7 @@
 const db = require('../model/db.js');
 const Plant = require('../model/plant.js');
-
+const Post = require('../model/postCQ.js');
+const Comment = require('../model/postCmnts.js');
 const ctrler = {
 
     //Welcome or Index
@@ -15,7 +16,7 @@ const ctrler = {
 
     //Table of Contents
     getTableOfContents: function(req,res) {
-        db.findMany (Plant, {}, '', function (result) {
+        db.findMany (Plant, {}, 'pName', function (result) {
             if (!result)
                 res.render('index');
             else {
@@ -28,7 +29,7 @@ const ctrler = {
     },
 
     getPlantSection: function(req,res) {
-        var query = {pName: req.params.pName};
+        var query = {plant: req.params.pName};
 
         var details = {};
 
@@ -43,7 +44,7 @@ const ctrler = {
                 details.pFamily = result.pFamily;
                 details.pPhoto = result.pPhoto;
 
-                db.findMany(Post, {plant: pName}, '', function(result) {
+                db.findMany(Post, query, '', function(result) {
                     details.posts = result;
                 });
 
