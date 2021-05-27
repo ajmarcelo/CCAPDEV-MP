@@ -7,7 +7,7 @@ var CmntTab = new mongoose.Schema ({
 		required: false
 	},
 
-	cmntID {
+	cmntID: {
 		type: String,
 		required: true
 	},

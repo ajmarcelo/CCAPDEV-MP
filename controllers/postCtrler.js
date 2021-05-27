@@ -33,10 +33,10 @@ const postCtrler = {
             else
                 res.render ('error');
         });	
-    }
+    },
 
     getPost: function (req, res) {
-        var query = {postID.req.params.postID};
+        var query = {postID: req.params.postID};
         var projection = 'username postID date plant typeCQ content file';
         var details = {};
 
@@ -54,7 +54,7 @@ const postCtrler = {
             });
             res.render ('viewpost', details);
         });
-    }
+    },
 
     editPost: function (req, res) {
         var query = {postID: req.params.postID};
@@ -110,7 +110,7 @@ const postCtrler = {
             else
                 res.render ('error');
         });   
-    }
+    },
 
     deletePost: function (req, res) {
         // var query = {pName: req.params.pName};

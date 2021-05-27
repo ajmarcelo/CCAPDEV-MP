@@ -80,7 +80,7 @@ const database = {
             console.log('Document deleted: ' + result.deletedCount);
             return callback(true);
         });
-    }
+    },
 
     getObjectID: function () {
         return mongoose.Types.ObjectID().toString();
