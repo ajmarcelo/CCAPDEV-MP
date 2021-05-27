@@ -7,6 +7,11 @@ var CmntTab = new mongoose.Schema ({
 		required: false
 	},
 
+	cmntID {
+		type: String,
+		required: true
+	},
+
 	date: {
 		type: Date,
 		required: true

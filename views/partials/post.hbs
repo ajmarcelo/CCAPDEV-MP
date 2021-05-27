@@ -1,13 +1,13 @@
-<div class = "pContribution pQuestion" id = "pPost">
+<div class = "pContribution pQuestion" id = "{{postID}}"> <!--id = "pPost"-->
 	<div class = "posthead">
 		<div class = "poster">
 			<div class = lefthead>
-				<a href = "/{{username}}/profile" title = "{{fName}} {{lName}}">
+				<a href = "/profile/:{{username}}" title = "{{fName}} {{lName}}">
 				<img id = "PFP" src = "images/defaultPFP.png" width = "50" height = "50">
 				</a>
 			</div>
 			<div class = "righthead">
-				<a class = "person" href = "/{{username}}/profile" title = "{{fName}} {{lName}}"> {{username}} </a>
+				<a class = "person" href = "/profile/:{{username}}" title = "{{fName}} {{lName}}"> {{username}} </a>
 				<p class = "date">{{date}}</p>
 			</div>
 		</div>
@@ -25,12 +25,12 @@
 		<p id = "upCnt"> {{upCtr}} </p><p> &#8679 </p>
 		<p id = "downCnt"> {{downCtr}} </p><p> &#8681 </p>
 	</div>
-	{{#if role}}
+	{{#if username}}
 		{{#if owner}}
 			{{> myPostBtns}}
 		{{else}}
 			{{> otherPostBtns}}
 		{{/if}}
 	{{/if}}
-
+	<a id = "comms" href="/viewPost/{{postID}}">View Comments</a>	
 </div>

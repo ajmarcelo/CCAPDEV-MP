@@ -81,6 +81,10 @@ const database = {
             return callback(true);
         });
     }
+
+    getObjectID: function () {
+        return mongoose.Types.ObjectID().toString();
+    }
 }
 
 module.exports = database;

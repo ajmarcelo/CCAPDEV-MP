@@ -7,7 +7,7 @@ var PostTab = new mongoose.Schema ({
 		required: false
 	},
 
-	id: {
+	postID: {
 		type: String,
 		required: true
 	},

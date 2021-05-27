@@ -9,11 +9,12 @@
 		<link rel = "stylesheet" type = "text/css" href = "/css/postsGen.css">
 		<link rel = "stylesheet" type = "text/css" href = "/css/postCmnts.css">
 		<link rel = "stylesheet" type = "text/css" href = "/css/postsM.css">
+		<script type = "text/javascript" src = "cmntBtns.js"></script>
 	</head>
 
 	<body id="contributionMBody">	
 		<!-- Main Tabs -->
-		{{#if role}}
+		{{#if username}}
 			{{> headerM}}
 		{{else}}
 			{{> headerV}}
@@ -24,7 +25,7 @@
 				<div id = "pCeiling">
 					{{> post}}
 				</div>
-				{{#if role}}
+				{{#if username}}
 					{{> writeCmnt}}
 				<div id = "pWallCmnt">
 					{{#each comments}}
