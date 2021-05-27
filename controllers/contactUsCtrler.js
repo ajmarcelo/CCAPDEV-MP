@@ -1,3 +1,6 @@
+const { validationResult } = require('express-validator');
+const ContactUs = require('../model/contact.js');
+
 const contactUsCtrler = {
     getContactUs: function (req, res) {
         res.render('contact');

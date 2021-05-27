@@ -5,7 +5,7 @@
 		<title> Sign up </title>
 		<!-- <link rel="stylesheet" type="text/css" href= "design.css"> -->	
 		<meta name="description" content="Sign up Page">
-		<meta name="author" content="Andrea Jean Marcelo">
+		<meta name="author" content="Andrea Jean Marcelo">			
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
 			body {			
@@ -40,7 +40,7 @@
 				background-color: #d1a748;
 			}
 
-			button {
+			.btn {
   				border: 2px solid black;
   				color: white;
   				padding: 2px 24px;
@@ -52,7 +52,7 @@
 				border-radius: 12px;
 			}
 
-			button:hover {
+			input:hover[type="submit"] {
 				border-color: #d1a748;
 				background-color: #fff9dd;
 				color: #d1a748;
@@ -77,6 +77,7 @@
 
 			#signupForm {
 				display: flex;
+				flex-direction: column;
 				align-items: center;
 				justify-content: center;
 			}
@@ -134,6 +135,27 @@
 				border: 3px solid #8aa169;
 				border-radius: 12px;
 				background-color: #fff9dd;
+			}
+
+			#firstpart {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 50%;
+				font-family: 'Lato', sans-serif;
+			}
+
+			.error {
+			    height: 12px;
+			    font-size: 13px;
+			    text-align: left;
+			    color: black;
+			}
+
+			.error:empty {
+			    height: 12px;
+			    text-align: left;
+			    color: black;
 			}					
 		</style>
 	</head>
@@ -145,39 +167,41 @@
 			<br>
 			<a id="viewer" href="/home">Proceed as Viewer</a>		
 			<br><br>
-			<form id = "signupForm"> 	
-				<div id = "leftHalf">
-					<label id="label">First Name</label>
-					<input class="accdets" type="text" placeholder="First Name" id="fname" name="fname">
-					<p id="fNameError" class = "error">{{fNameError}}</p>
-					<label id="label1">Last Name</label>
-					<input class="accdets" type="text" placeholder="Last Name" id="lname" name="lname">
-					<p id="lNameError" class = "error">{{lNameError}}</p>	
-					<br>
-					<label id="label">Username</label>
-					<input class="accdets" type="text" placeholder="Username" id="uname" name="uname">
-					<p id="unameError" class = "error">{{unameError}}</p>
-					<label id="label1">Password</label>
-					<input class="accdets" type="text" placeholder="Password" id="pword" name="pword">
-					<p id="pwordError" class = "error">{{pwordError}}</p>
+			<form id = "signupForm" method="post"> 
+				<div id="firstpart">	
+					<div id = "leftHalf">
+						<label id="label">First Name</label>
+						<input class="accdets" type="text" placeholder="First Name" id="fname" name="fname">
+						<p id="fnameError" class = "error">{{fnameError}}</p>
+						<label id="label1">Last Name</label>
+						<input class="accdets" type="text" placeholder="Last Name" id="lname" name="lname">
+						<p id="lnameError" class = "error">{{lnameError}}</p>	
+						<br>
+						<label id="label">Username</label>
+						<input class="accdets" type="text" placeholder="Username" id="uname" name="uname">
+						<p id="unameError" class = "error">{{unameError}}</p>
+						<label id="label1">Password</label>
+						<input class="accdets" type="text" placeholder="Password" id="pword" name="pword">
+						<p id="pwordError" class = "error">{{pwordError}}</p>
+						<br>
+					</div>
+					<div id = "rightHalf">
+						<label id="label">Birthday</label>
+						<input class="accdets" type="date" id="bday" name="bday" 
+								value="2000-01-01" min="1900-01-01" max="2021-12-31">
+						<p id="bdayError" class = "error">{{bdayError}}</p>		
+						<label id="label1">Country</label>
+						<input class="accdets" type="text" placeholder="Country" id="cname" name="cname">
+						<p id="cnameError" class = "error">{{cnameError}}</p>
+						<label id="label1">Existing Email</label>
+						<input class="accdets" type="text" placeholder="Email" id="email" name="email">
+						<p id="emailError" class = "error">{{emailError}}</p>	
+						<br>
+					</div>
 					<br>
 				</div>
-				<div id = "rightHalf">
-					<label id="label">Birthday</label>
-					<input class="accdets" type="date" id="bday" name="bday" 
-							value="2000-01-01" min="1900-01-01" max="2021-12-31">
-					<p id="bdayError" class = "error">{{bdayError}}</p>		
-					<label id="label1">Country</label>
-					<input class="accdets" type="text" placeholder="Country" id="cname" name="cname">
-					<p id="cnameError" class = "error">{{cnameError}}</p>
-					<label id="label1">Existing Email</label>
-					<input class="accdets" type="text" placeholder="Email" id="email" name="email">
-					<p id="emailError" class = "error">{{emailError}}</p>	
-					<br>
-				</div>
-				<br>
-			</form>
-			<h3> Please fill up if you are signing up as a contributor:</h3>
+				
+				<h3> Please fill up if you are signing up as a contributor:</h3>
 
 				<label id="label">Plant Business Name</label>
 				<input class="accdets" type="text" placeholder="Plant Business Name" id="pbname" name="pbname">
@@ -200,11 +224,11 @@
 					<p id = "err"></p>
 				</div>
 				<br><br><br>							
-		
-			<button class="buttons" id="submit">Submit</button>
+				<input type="submit" id="submit" value="Submit" class = "btn" name = "signupbtn">
+			</form>		
 			<br><br><br>	
 		</div>	
-		<script>
+<!-- 		<script>
 			function clicksubmit() {
 				location.href="/login";
 				alert("You may now log in your account.");
@@ -212,6 +236,6 @@
 
 			var submitButton = document.getElementById("submit");	
 			submitButton.onclick = clicksubmit;					
-		</script>
+		</script> -->
 	</body>
 </html>

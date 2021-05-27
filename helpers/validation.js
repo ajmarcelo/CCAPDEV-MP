@@ -4,8 +4,8 @@ const validation = {
 	//Sign Up
     signUpValid: function () {
         var validation = [
-            check('fName', 'First name is required.').notEmpty(),
-            check('lName', 'Last name is required.').notEmpty(),
+            check('fname', 'First name is required.').notEmpty(),
+            check('lname', 'Last name is required.').notEmpty(),
             check('uname', 'Username is required.').notEmpty(),
             check('pword', 'Password is required.').notEmpty(),
             check('bday', 'Birthday is required.').notEmpty(),

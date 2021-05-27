@@ -24,7 +24,7 @@
 				color: #fff9dd;
 			}
 
-			button {
+			.btn {
   				border: 2px solid black;
   				color: white;
   				padding: 2px 24px;
@@ -36,7 +36,7 @@
 				border-radius: 12px;
 			}
 
-			button:hover {
+			input:hover[type="submit"] {
 				border-color: #8aa169;
 				background-color: #fff9dd;
 				color: #8aa169;
@@ -49,7 +49,7 @@
 			.loginContents {
 				position: absolute;
 				width:40%;
-				height: 70%;
+				height: 72%;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
@@ -67,6 +67,11 @@
 				width: 100%;
 			}
 
+			#unameError, #pwordError {
+				margin:  1;
+				font-family: 'Montserrat', sans-serif;
+				font-size: 2vh;
+			}
 			#err {
 				margin: 1%;
 				padding: 1%;
@@ -104,29 +109,28 @@
 				border: 3px solid #d1a748;
 				border-radius: 12px;
 				background-color: #fff9dd;
-			}						
+			}					
 		</style>
 	</head>
 
 	<body id="loginBody">
 		<div class="loginContents">
 			<h1 id="logintitle"> Log in </h1>
-			<form class="form">
+			<form class="form" method="post">
 				<input class="accdets" type="text" placeholder="Username" id="uname" name="uname">
 				<p id="unameError" class = "error">{{unameError}}</p>		
 				<input class="accdets" type="text" placeholder="Password" id="pword" name="pword">
 				<p id="pwordError" class = "error">{{pwordError}}</p>
+			<input type="submit" id="loginbutton" value="Log In" class = "btn" name = "loginbtn">
 			</form>
 			<div class = "error">
 				<p id = "err">{{error}}</p>
 			</div>		
-			<button id="loginbutton">Log in</button>
-			<br>
 			<a id="signup" href="/signup">Sign Up for Plantheta</a>
 			<br>		
 			<a id="viewer" href="/home">Proceed as Viewer</a>		
 		</div>	
-		<script>
+<!-- 		<script>
 			function clicklogin ()
 			{
 				var uname = document.getElementById ("uname");
@@ -136,5 +140,5 @@
 			var loginButton = document.getElementById("loginbutton");
 			loginButton.onclick = clicklogin;
 		</script>
-	</body>
+ -->	</body>
 </html>
