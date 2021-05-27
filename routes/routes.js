@@ -34,9 +34,15 @@ app.get("/otherAccount/:username", accountCtrler.getOtherAccount);
 app.get ("/home", homeCtrler.getHome);
 app.post ("/searchResults", validation.homeSearchValid(), homeCtrler.postHome);	// Search results (?)
 
-//app.get ("/postForm", postCtrler.getPostForm);
-// app.post ("/postform", );	// Both for posting and editing then posting (?)
-// app.get ("/viewpost", );
+// app.get ("/viewpost/:postID", postCtrler.getPost);
+
+// app.get ("/postForm", postCtrler.getPostForm);
+// app.post ("/postForm", postCtrler.postPostForm);
+
+// app.get ("/editPostForm", postCtrler.getEditPostForm);
+// app.post ("/editPostForm", postCtrler.postEditPostForm);
+
+// app.post ("/?????", postCtrler.deletePost);	// Wala palang page yung delete wofeboufb
 
 app.get ("/toc", ctrler.getTableOfContents);
 app.get("/plant/:pName", ctrler.getPlantSection);

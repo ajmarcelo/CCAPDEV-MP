@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Posting Form</title>
+		<title>Edit Post Form</title>
 		<!-- <link rel="stylesheet" type="text/css" href= "design.css"> -->	
 		<meta name="description" content="Posting Form Page">
 		<meta name="author" content="Andrea Jean Marcelo">
@@ -81,7 +81,7 @@
 				font-family: 'Montserrat', sans-serif;
 			}
 
-			#plantlabel, #postlabel, .error {
+			.error {
 				font-family: 'Lato', sans-serif;
 			}
 
@@ -170,7 +170,7 @@
 		
 		<div id="parentPostContents">
 			<div id="postContents">
-				<h1 id="posttitle">Posting Form</h1>
+				<h1 id="posttitle">Edit Post Form</h1>
 <<<<<<< Updated upstream
 
 				<p id="todayError" class = "error">{{todayError}}</p>
@@ -180,28 +180,14 @@
 =======
 >>>>>>> Stashed changes
 				<br><br>
-					<label id="plantlabel" >Plant</label>
-					<select class="postdets" name="plant" id="plant">
-						<option value="Fortune Plant">Fortune Plant</option>
-						<option value="Oregano">Oregano</option>
-						<option value="Peperomia">Peperomia</option>
-						<option value="Umbrella Plant">Umbrella Plant</option>
-						<option value="Wandering Plant">Wandering Plant</option>
-					</select>
-					<label id="postlabel">Type of Post</label>
-					<select class="postdets" name="ptype" id="ptype">
-						<option value="[CONTRIBUTION]">Contribution</option>
-						<option value="[QUESTION]">Question</option>
-					</select>
-				<br><br>
-					<textarea class="message" id="msg" name="msg"placeholder="Write something.." style="height:200px"></textarea>
+					<textarea class="message" id="msg" name="msg"placeholder="Write something.." style="height:200px">{{content}}</textarea>
 				<br><br>
 					<input class="postdets" type="file" id="imgf" name="imgf">	
 				<br><br>
 				<div class = "error">
 					<p id = "err"></p>
 				</div>
-				<br><br><br>								
+				<br><br><br>						
 				<button class="buttons" id="submitbutton">Submit</button>
 			</div>
 		</div>
