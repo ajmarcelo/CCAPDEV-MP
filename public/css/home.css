@@ -89,3 +89,10 @@ body {
 #searchButton:hover {
 	background-color: #8aa169;
 }
+
+#searchForm {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

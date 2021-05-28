@@ -27,6 +27,8 @@
 				<div id = "pWallSearch">
 					{{#each posts}}
 						{{> post}}
+						{{else}}
+							<h2 id="errorMsg">Oh no! We didn't find any results for "{{word}}".</h2>
 					{{/each}}
 				</div>
 			</div>

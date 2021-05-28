@@ -27,12 +27,11 @@ app.get("/myAccount", accountCtrler.getMyAccount);
 app.get("/editAccount", accountCtrler.getEditAccount);
 app.post("/editAccount", validation.accountEditValid(), accountCtrler.postEditAccount);
 app.get("/deleteAccount", accountCtrler.getDeleteAccount);
-app.post("/deleteAccount", accountCtrler.postDeleteAccount);
+app.post("/deleteAccount", validation.confirmDeleteValid(), accountCtrler.postDeleteAccount);
 app.get("/otherAccount/:username", accountCtrler.getOtherAccount);
 
-
-app.get ("/home", homeCtrler.getHome);
-app.post ("/searchResults", validation.homeSearchValid(), homeCtrler.postHome);	// Search results (?)
+app.get("/home", homeCtrler.getHome);
+app.post("/home", homeCtrler.postHome);
 
 // app.get ("/viewpost/:postID", postCtrler.getPost);
 

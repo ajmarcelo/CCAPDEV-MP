@@ -29,7 +29,7 @@ var UserTab = new mongoose.Schema ({
 
 	birthday: {
 		type: Date,
-		required: false
+		required: true
 	},
 
 	country: {
@@ -48,11 +48,16 @@ var UserTab = new mongoose.Schema ({
 	},
 
 	businessYrs: {
-		type: Number,
+		type: String,
 		required: false
 	},
 
 	proofLink: {
+		type: String,
+		required: false
+	},
+
+	role: {
 		type: String,
 		required: false
 	}

@@ -11,17 +11,20 @@ const ctrler = {
 
     //About Us
     getAboutUs: function (req, res) {
-        res.render('aboutus');
+        var details = {role: req.session.role}; 
+        res.render('aboutus', details);
     },
 
     //Table of Contents
     getTableOfContents: function(req,res) {
+
         db.findMany (Plant, {}, 'pName', function (result) {
             if (!result)
                 res.render('index');
             else {
                 var details = {
-                    plants: result
+                    plants: result,
+                    role: req.session.role
                 }
                 res.render('toc', details);
             }            
@@ -43,7 +46,7 @@ const ctrler = {
                 details.pLight = result.pLight;
                 details.pFamily = result.pFamily;
                 details.pPhoto = result.pPhoto;
-
+                details.role = req.session.role;
                 db.findMany(Post, {plant: req.params.pName}, '', function(result) {
                     details.posts = result;
                 });

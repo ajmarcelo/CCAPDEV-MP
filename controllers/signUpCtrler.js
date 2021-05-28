@@ -27,8 +27,8 @@ const signupCtrler = {
         }
 
         else {
-            var fName = req.body.fName;
-            var lName = req.body.lName;
+            var fName = req.body.fname;
+            var lName = req.body.lname;
             var username = req.body.uname;
             var password = req.body.pword;
             var birthday = req.body.bday;
@@ -36,9 +36,14 @@ const signupCtrler = {
             var email = req.body.email;
             var businessName = req.body.pbname;
             var businessYrs = req.body.byears;
-            var proofLink = req.body.olink;
-            
-            bcrypt.hash(pw, saltRounds, function(err, hash) {
+            var proofLink = req.body.olink;            
+            var role = "member";
+            var bio = req.body.bio;
+
+            if(proofLink != "")
+                role = "contributor";                
+
+            bcrypt.hash(password, saltRounds, function(err, hash) {
 
                 var user = {
                     fName: fName,
@@ -50,9 +55,11 @@ const signupCtrler = {
                     email: email,
                     businessName: businessName,
                     businessYrs: businessYrs,
-                    proofLink: proofLink                    
+                    proofLink: proofLink,
+                    role: role,
+                    bio: bio                    
                 }
-
+   
                 db.insertOne(User, user, function(flag) {
                     if(flag) {
                         res.redirect('/login');

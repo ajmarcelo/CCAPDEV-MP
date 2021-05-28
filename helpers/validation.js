@@ -77,15 +77,6 @@ const validation = {
         ];
 
         return validation;
-    },
-
-    //Home Search
-    homeSearchValid: function() {
-        var validation = [
-            check('search', 'Please fill up.').notEmpty()          
-        ];
-
-        return validation;
     }
 }
 

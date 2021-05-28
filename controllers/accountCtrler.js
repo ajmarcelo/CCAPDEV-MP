@@ -1,28 +1,31 @@
+const { validationResult } = require('express-validator');
 const db = require('../model/db.js');
-
 const User = require('../model/user.js');
-
+const Comment = require('../model/postCmnts.js');
+const Post = require('../model/postCQ.js');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const accountCtrler = {
     getMyAccount: function (req, res) {
         var query = {username: req.session.username};
 
-        var projection = 'fName lName username bio password birthday country email businessName businessYrs';
-
         var details = {};
 
-        db.findOne(User, query, projection, function(result) {
+        db.findOne(User, query, '', function(result) {
             if(result != null) {
+                var bday = new Date(result.birthday);
+                var happy = ("0"+(bday.getMonth()+1)).slice(-2)+"-"+ ("0"+bday.getDate()).slice(-2)+"-"+bday.getFullYear();
+
                 details.fName = result.fName;
                 details.lName = result.lName;
                 details.username = result.username;
                 details.bio = result.bio;
-                details.password = result.password;
-                details.birthday = result.birthday;
+                details.birthday = happy;
                 details.country = result.country;
                 details.email = result.email;
                 details.businessName = result.businessName;
                 details.businessYrs = result.businessYrs;    
-
+                details.role = result.role;
                 res.render('myAccount', details);
             }
 
@@ -35,22 +38,22 @@ const accountCtrler = {
     getOtherAccount: function (req, res) {
         var query = {username: req.params.username};
 
-        var projection = 'fName lName username bio birthday country email businessName businessYrs';
-
         var details = {};
 
-        db.findOne(User, query, projection, function(result) {
+        db.findOne(User, query, '', function(result) {
             if(result != null) {
+                var bday = new Date(result.birthday);
+                var happy = ("0"+(bday.getMonth()+1)).slice(-2)+"-"+ ("0"+bday.getDate()).slice(-2)+"-"+bday.getFullYear();
                 details.fName = result.fName;
                 details.lName = result.lName;
                 details.username = result.username;
                 details.bio = result.bio;
-                details.birthday = result.birthday;
+                details.birthday = happy;
                 details.country = result.country;
                 details.email = result.email;
                 details.businessName = result.businessName;
                 details.businessYrs = result.businessYrs;  
-
+                details.role = result.role;
                 res.render('otherAccount', details);
             }
 
@@ -63,23 +66,23 @@ const accountCtrler = {
     getEditAccount: function(req, res) {
         var query = {username: req.session.username};
 
-        var projection = 'fName lName username bio password birthday country email businessName businessYrs';
-
         var details = {};
 
-        db.findOne(User, query, projection, function(result) {
+        db.findOne(User, query, '', function(result) {
             if(result != null) {
+                var bday = new Date(result.birthday);
+                var happy = bday.getFullYear()+"-"+("0"+(bday.getMonth()+1)).slice(-2)+"-"+("0"+bday.getDate()).slice(-2);                
                 details.fName = result.fName;
                 details.lName = result.lName;
                 details.username = result.username;
                 details.bio = result.bio;
                 details.password = result.password;
-                details.birthday = result.birthday;
+                details.birthday = happy;
                 details.country = result.country;
                 details.email = result.email;
                 details.businessName = result.businessName;
                 details.businessYrs = result.businessYrs;      
-
+                details.role = result.role;
                 res.render('accountEdit', details);
             }
 
@@ -90,8 +93,7 @@ const accountCtrler = {
     },
 
     postEditAccount: function(req, res) {
-        var query = { username: req.session.username };
-
+        var query = {username: req.session.username};
         var errors = validationResult(req);
 
         if (!errors.isEmpty()) {
@@ -102,43 +104,64 @@ const accountCtrler = {
             for(i = 0; i < errors.length; i++)
                 details[errors[i].param + 'Error'] = errors[i].msg;
 
-            res.render('accountEdit', details);
+            db.findOne(User, query, '', function(result) {
+                if(result != null) {
+                    var bday = new Date(result.birthday);
+                    var happy = bday.getFullYear()+"-"+("0"+(bday.getMonth()+1)).slice(-2)+"-"+("0"+bday.getDate()).slice(-2);                
+                    details.fName = result.fName;
+                    details.lName = result.lName;
+                    details.bio = result.bio;
+                    details.password = result.password;
+                    details.birthday = happy;
+                    details.country = result.country;
+                    details.email = result.email;
+                    details.businessName = result.businessName;
+                    details.businessYrs = result.businessYrs;      
+                    details.role = result.role;
+                    res.render('accountEdit', details);
+                }
+
+                else {
+                    res.render('error');
+                }
+            });  
         }
 
         else {
-            var update = {
-                    fName: req.body.fName,
-                    lName: req.body.lName,
-                    password: req.body.password,
-                    birthday: req.body.birthday,
-                    country: req.body.country,
-                    email: req.body.email,
-                    businessName: req.body.business,
-                    businessYrs: req.body.years
+            var username = req.session.username;
+            var role = req.session.role;            
+            var fName = req.body.fName;
+            var lName = req.body.lName;
+            var password = req.body.password;
+            var birthday = req.body.birthday;
+            var country = req.body.country;
+            var email= req.body.email;
+            var businessName = req.body.business;
+            var businessYrs = req.body.years;
+            var bio = req.body.bio;
+
+            bcrypt.hash(password, saltRounds, function(err, hash) {
+                var update = {
+                    username: username,
+                    role: role, 
+                    fName: fName,
+                    lName: lName,
+                    password: hash,
+                    birthday: birthday,
+                    country: country,
+                    email: email,
+                    businessName: businessName,
+                    businessYrs: businessYrs,
+                    bio: bio
+
                 };
 
-                var details = {};
-
-                db.updateOne(User, query, update, function(result) {
-                    if(result != null) {
-                        details.fName = result.fName;
-                        details.lName = result.lName;
-                        details.username = result.username;
-                        details.bio = result.bio;
-                        details.password = result.password;
-                        details.birthday = result.birthday;
-                        details.country = result.country;
-                        details.email = result.email;
-                        details.businessName = result.businessName;
-                        details.businessYrs = result.businessYrs;      
-
-                        res.render('myAccount', details);
-                    }
-
-                    else {
-                        res.render('error');
+                db.updateOne(User, {username: req.session.username}, update, function(flag) {
+                    if(flag) {
+                        res.render('myAccount', update);                           
                     }
                 });  
+            });
         }        
     },
 
@@ -153,12 +176,9 @@ const accountCtrler = {
     postDeleteAccount: function(req, res) {
         var errors = validationResult(req);
         var query = {username: req.body.uname};
-
+        var details = {role: req.session.role};
         if (!errors.isEmpty()) {
             errors = errors.errors;
-
-            var details = {};
-
             for(i = 0; i < errors.length; i++)
                 details[errors[i].param + 'Error'] = errors[i].msg;
 
@@ -180,7 +200,7 @@ const accountCtrler = {
                             }
                             else
                             {
-                                res.redirect('/myAccount');
+                                res.redirect('/myAccount', details);
                             }
                         });
                     });

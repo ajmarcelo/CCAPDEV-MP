@@ -89,7 +89,7 @@
 				margin: 0% 8%;
 			}
 
-			#fname, #lname, #uname, #pword, #bday, #cname, #email {
+			#fname, #lname, #uname, #pword, #bday, #cname, #email, #pbname, #byears {
 				width: 100%;
 			}
 
@@ -156,7 +156,33 @@
 			    height: 12px;
 			    text-align: left;
 			    color: black;
-			}					
+			}	
+			
+			#t1 {
+				background-color: #fff9dd;
+				color: #555251;
+				border-radius: 20px;
+				width: 100%;
+				font-weight: normal;
+				margin: 0;
+				padding: 4%;
+				font-size: 2.0vh;
+				border: 3px solid #8aa169;
+				cursor: pointer;
+				border-color: #d1a748;			
+			}	
+			#bio {
+				width: 40%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+			}
+			#t1:hover, #t1:focus {
+				border: 3px solid #8aa169;
+				border-radius: 20px;
+				background-color: #fff9dd;
+			}								
 		</style>
 	</head>
 
@@ -181,9 +207,12 @@
 						<input class="accdets" type="text" placeholder="Username" id="uname" name="uname">
 						<p id="unameError" class = "error">{{unameError}}</p>
 						<label id="label1">Password</label>
-						<input class="accdets" type="text" placeholder="Password" id="pword" name="pword">
+						<input class="accdets" type="password" placeholder="Password" id="pword" name="pword">
 						<p id="pwordError" class = "error">{{pwordError}}</p>
 						<br>
+						<label id="label1">Existing Email</label>
+						<input class="accdets" type="text" placeholder="Email" id="email" name="email">
+						<p id="emailError" class = "error">{{emailError}}</p>							
 					</div>
 					<div id = "rightHalf">
 						<label id="label">Birthday</label>
@@ -193,28 +222,28 @@
 						<label id="label1">Country</label>
 						<input class="accdets" type="text" placeholder="Country" id="cname" name="cname">
 						<p id="cnameError" class = "error">{{cnameError}}</p>
-						<label id="label1">Existing Email</label>
-						<input class="accdets" type="text" placeholder="Email" id="email" name="email">
-						<p id="emailError" class = "error">{{emailError}}</p>	
 						<br>
+						<label id="label">Plant Business Name</label>
+						<input class="accdets" type="text" placeholder="Plant Business Name" id="pbname" name="pbname">
+						<br><br><label id="label">Years of business</label>
+						<select class="accdets" name="byears" id="byears">
+							<option value=""></option>
+							<option value="less than a year">less than a year</option>
+							<option value="1-2 year">1-2 years</option>
+							<option value="2-3"> 2-3 years</option>
+							<option value="3-4 years">3-4 years</option>
+							<option value="4-5 years">4-5 years</option>
+							<option value="more than 5 years">more than 5 years</option>	
+						</select>						
 					</div>
 					<br>
 				</div>
-				
-				<h3> Please fill up if you are signing up as a contributor:</h3>
-
-				<label id="label">Plant Business Name</label>
-				<input class="accdets" type="text" placeholder="Plant Business Name" id="pbname" name="pbname">
-				<br><br><label id="label">Years of business</label>
-				<select class="accdets" name="byears" id="byears">
-					<option value="less than a year">less than a year</option>
-					<option value="1-2 year">1-2 years</option>
-					<option value="2-3"> 2-3 years</option>
-					<option value="3-4 years">3-4 years</option>
-					<option value="4-5 years">4-5 years</option>
-					<option value="more than 5 years">more than 5 years</option>	
-				</select>
+				<div id = "bio">
+					<label id="label">Your Bio</label>
+					<textarea type = "text" class = "text" id = "t1" name = "bio" rows = "15" cols = "10" maxlength = "550" placeholder = "Write a short introduction about yourself!"></textarea>
+				</div>				
 				<br><br>
+				<h3> Please fill up if you are signing up as a contributor:</h3>
 				<p id = "proofNote">Insert a link (e.g. online shop link, google drive link for photo)
 				</p>
 				<label id = "label">Proof</label>
@@ -222,20 +251,10 @@
 				<br><br>
 				<div class = "error">
 					<p id = "err"></p>
-				</div>
-				<br><br><br>							
+				</div>							
 				<input type="submit" id="submit" value="Submit" class = "btn" name = "signupbtn">
 			</form>		
 			<br><br><br>	
 		</div>	
-<!-- 		<script>
-			function clicksubmit() {
-				location.href="/login";
-				alert("You may now log in your account.");
-			}
-
-			var submitButton = document.getElementById("submit");	
-			submitButton.onclick = clicksubmit;					
-		</script> -->
 	</body>
 </html>

@@ -61,11 +61,11 @@ label.lbl {
 	text-align: left;
 }
 
-.maintabs, .type, h2, h4, button, .lbl {
+.maintabs, .type, h2, h4, button, .lbl, #bioTitle {
 	font-family: 'Montserrat', sans-serif;
 }
 
-#bio, #fName, #lName, #curr-pass, #birthday, #curr-loc, #email, #business, #years, .error {
+#bio, #fName, #lName, #password, #birthday, #country, #email, #business, #years, .error{
 	font-family: 'Lato', sans-serif;
 }
 
@@ -206,7 +206,7 @@ label.lbl {
 	width: 85%;
 }
 
-#fName, #lName, #curr-pass, #birthday, #curr-loc, #email, #business, #years {
+#fName, #lName, #password, #birthday, #country, #email, #business, #years {
 	background-color: #fff9dd;
 	color: #555251;
 	border-radius: 50px;
@@ -244,7 +244,9 @@ label.lbl {
 	margin-bottom: 5px;
 }
 
-/*div.info p {
-	display: inline;
+#bioTitle {
+	font: 6vh;
+	color: #708328;
 	font-weight: bold;
-}*/
+	margin:  1;			
+}

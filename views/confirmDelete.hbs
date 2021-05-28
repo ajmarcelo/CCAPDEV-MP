@@ -24,7 +24,7 @@
 				color: #fff9dd;
 			}
 
-			button {
+			#confirm {
   				border: 2px solid black;
   				color: white;
   				padding: 2px 24px;
@@ -36,13 +36,13 @@
 				border-radius: 12px;
 			}
 
-			button:hover {
+			#confirm:hover {
 				border-color: #8aa169;
 				background-color: #fff9dd;
 				color: #8aa169;
 			}
 
-			.maintabs, #pagetitle, #confirm {
+			.maintabs, #pagetitle, #confirm, #confirmNote {
 				font-family: 'Montserrat', sans-serif;
 			}
 
@@ -105,26 +105,15 @@
 		<div class="cDeleteContents">
 			<h1 id="pagetitle"> Delete Account </h1>
 			<p id = "confirmNote">Input your username to confirm.</p>			
-			<form class="form">
-				<p id="unameError" class = "error">{{unameError}}</p>			
+			<form class="form" method="post">			
 				<input class="accdets" type="text" placeholder="Username" id="uname" name="uname">
-				<br><br>		
+				<p id="unameError" class = "error">{{unameError}}</p>
+				<br><br>
+				<input type="submit" id="confirm" value="Confirm" class = "btn" name = "confirmBtn">		
 			</form>
 			<div class = "error">
 				<p id = "err">{{error}}</p>
-			</div>
-			<br>		
-			<button id="confirm">Confirm</button>
-			<br><br>	
+			</div>	
 		</div>	
-		<script>
-			function clickConfirm ()
-			{
-				var uname = document.getElementById ("uname");
-				location.href = "/";
-			}	
-			var loginButton = document.getElementById("confirm");
-			confirm.onclick = clickConfirm;
-		</script>
 	</body>
 </html>

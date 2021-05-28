@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Account</title>
+	<title>{{fName}} {{lName}}</title>
 	<link rel = "stylesheet" type = "text/css" href = "/css/accounts.css">
 </head>
 <body>
@@ -46,6 +46,7 @@
 				</div>
 			</div>
 			<div class = "content" id = "mid">
+				<h1 id="bioTitle"> Bio </h1> 
 				<div id = "bio">
 					<p class = "text" id = "t1">{{bio}}</p>
 				</div>
@@ -55,13 +56,11 @@
 				<div class = "info">
 					<label for = "fName" class = "lbl">First name: </label><p id = "fName">{{fName}}</p>
 
-					<label for = "lName" class = "lbl">Last name: </label><p id = "lName">{{lname}}</p>
-
-					<label for = "password" class = "lbl">Password: </label><p id = "curr-pass">{{password}}</p>
+					<label for = "lName" class = "lbl">Last name: </label><p id = "lName">{{lName}}</p>
 
 					<label for = "birthday" class = "lbl">Birthday: </label><p id = "birthday">{{birthday}}</p>
 
-					<label for = "location" class = "lbl">Country: </label><p id = "curr-loc">{{country}}</p>
+					<label for = "location" class = "lbl">Country: </label><p id = "country">{{country}}</p>
 
 					<label  for = "email" class = "lbl">Email: </label><p id = "email">{{email}}</p>
 
@@ -71,6 +70,21 @@
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
+	<script>
+		function clickDeleteAccount ()
+		{
+			location.href = "/deleteAccount";
+		}
+		var deleteAccountBtn = document.getElementById("deleteacc");
+		deleteAccountBtn.onclick = clickDeleteAccount;
+
+		function clickEditDetails ()
+		{
+			location.href = "/editAccount";
+		}	
+		var editDetailsBtn = document.getElementById("editdets");
+		editDetailsBtn.onclick = clickEditDetails;
+	</script>	
 </body>
 </html>

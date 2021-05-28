@@ -17,19 +17,11 @@
 
 		<div class="search">
 			<h1 id="searchTitle"> Plantheta </h1>
-			<input class="searchbar" type="text" placeholder="Search here..." id="search" name="search">	
-			<br>
-			<button id="searchButton">Search</button>
+			<form method="post" id="searchForm">
+				<input class="searchbar" type="text" placeholder="Search here..." id="search" name="search">	
+				<br>
+				<input type="submit" id="searchButton" value="Search" class = "btn" name = "searchBtn">
+			</form>	
 		</div>
-
-		<script>
-			function clicksearch ()
-			{
-				var sBar = document.getElementById ("search");
-				location.href = "//searchResults";
-			}	
-			var sButton = document.getElementById("searchButton");
-			sButton.onclick = clicksearch;
-		</script>	
 	</body>
 </html>

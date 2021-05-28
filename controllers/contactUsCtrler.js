@@ -3,16 +3,15 @@ const ContactUs = require('../model/contact.js');
 
 const contactUsCtrler = {
     getContactUs: function (req, res) {
-        res.render('contact');
+        var details = {role: req.session.role};
+        res.render('contact', details);
     },
 
     postContactUs: function (req, res) {
         var errors = validationResult(req);
-
+        var details = {role: req.session.role};
         if (!errors.isEmpty()) {
             errors = errors.errors;
-
-            var details = {};
 
             for(i = 0; i < errors.length; i++)
                 details[errors[i].param + 'Error'] = errors[i].msg;
@@ -28,7 +27,7 @@ const contactUsCtrler = {
                 }
                 db.insertOne(ContactUs, fback, function(flag) {
                     if(flag) {
-                        res.render('contact');
+                        res.render('contact', details);
                     }
                 });
         }   	   	

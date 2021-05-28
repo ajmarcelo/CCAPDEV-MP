@@ -119,7 +119,7 @@
 			<form class="form" method="post">
 				<input class="accdets" type="text" placeholder="Username" id="uname" name="uname">
 				<p id="unameError" class = "error">{{unameError}}</p>		
-				<input class="accdets" type="text" placeholder="Password" id="pword" name="pword">
+				<input class="accdets" type="password" placeholder="Password" id="pword" name="pword">
 				<p id="pwordError" class = "error">{{pwordError}}</p>
 			<input type="submit" id="loginbutton" value="Log In" class = "btn" name = "loginbtn">
 			</form>
@@ -130,15 +130,5 @@
 			<br>		
 			<a id="viewer" href="/home">Proceed as Viewer</a>		
 		</div>	
-<!-- 		<script>
-			function clicklogin ()
-			{
-				var uname = document.getElementById ("uname");
-				var pword = document.getElementById ("pword");
-				location.href = "/home";
-			}	
-			var loginButton = document.getElementById("loginbutton");
-			loginButton.onclick = clicklogin;
-		</script>
- -->	</body>
+	</body>
 </html>

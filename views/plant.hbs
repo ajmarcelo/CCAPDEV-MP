@@ -14,7 +14,7 @@
 
 	<body id="fplantBody">
 		<!-- Main Tabs -->
-		{{#if username}}
+		{{#if role}}
 			{{> headerM}}
 		{{else}}
 			{{> headerV}}
@@ -39,6 +39,8 @@
 						<div class = "pContribution" id = "c2">
 							{{#each posts}}
 								{{> post}}
+								{{else}}
+								<h2 id="emptyMsg">It's quiet in here... Liven it up by posting!</h2>
 							{{/each}}
 						</div>
 					</div>

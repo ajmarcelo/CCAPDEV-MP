@@ -8,31 +8,47 @@ const postCtrler = {
     },
 
     postPostForm: function (req, res) {
-        var username = req.session.uname;
-        var postID = db.getObjectID();
-        var date = new Date().toISOString().slice(0, 10);
-        var plant = req.body.plant;
-        var typeCQ = req.body.typeCQ;
-        var content = req.body.content;
-        var file = req.body.file;
-        
-        var post = {
-            username: username,
-            postID: postID,
-            date: date,
-            plant: plant,
-            typeCQ: typeCQ,
-            content: content,
-            file: file
-        }
+        var username = req.session.username;
 
-        db.insertOne(Post, post, function(flag) {
-            if(flag)
-                res.render ('plant', post);
+        var errors = validationResult(req);
 
-            else
-                res.render ('error');
-        });	
+        if (!errors.isEmpty()) {
+            errors = errors.errors;
+
+            var details = {};
+
+            for(i = 0; i < errors.length; i++)
+                details[errors[i].param + 'Error'] = errors[i].msg;
+
+            res.render('postForm', details);
+        }        
+       
+        else {
+            var postID = db.getObjectID();
+            var date = new Date().toISOString().slice(0, 10);
+            var plant = req.body.plant;
+            var typeCQ = req.body.ptype;
+            var content = req.body.msg;
+            var file = req.body.imgf;                
+
+            var post = {
+                username: username,
+                postID: postID,
+                date: date,
+                plant: plant,
+                typeCQ: typeCQ,
+                content: content,
+                file: file
+            }
+
+            db.insertOne(Post, post, function(flag) {
+                if(flag)
+                    res.render ('plant', post);
+
+                else
+                    res.render ('error');
+            });	
+        }    
     },
 
     getPost: function (req, res) {

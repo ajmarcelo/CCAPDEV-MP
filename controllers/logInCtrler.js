@@ -29,16 +29,11 @@ const logInCtrler = {
         else {
             db.findOne(User, {username: uname}, '', function (result) {
                 if(result) {
-                    var user = {
-                        fName: result.fName,
-                        lName: result.lName,
-                        uname: result.username
-                    };
-
                     bcrypt.compare(pword, result.password, function(err, equal) {
                         if(equal) {
-                            req.session.username = user.uname;
-                            res.render('home');
+                            req.session.username = result.username;
+                            req.session.role = result.role;
+                            res.redirect('/home');
                         }
 
                         else {
