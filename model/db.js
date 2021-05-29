@@ -83,7 +83,7 @@ const database = {
     },
 
     getObjectID: function () {
-        return mongoose.Types.ObjectID().toString();
+        return mongoose.Types.ObjectId().toString();
     }
 }
 

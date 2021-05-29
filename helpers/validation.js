@@ -52,7 +52,6 @@ const validation = {
     //postForm
     postFormValid: function () {
         var validation = [
-            check('today', 'Date is required.').notEmpty(),
             check('plant', 'Please choose a plant section.').notEmpty(),
             check('ptype', 'Please indicate the type of post.').notEmpty(),
             check('msg', 'Content is required.').notEmpty()      

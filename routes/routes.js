@@ -11,6 +11,17 @@ const signUpCtrler = require ("../controllers/signUpCtrler.js");
 const validation = require ("../helpers/validation.js");
 
 const app = express();
+const multer = require('multer')
+const path = require('path')
+const storage = multer.diskStorage({
+    destination: function (req, file, callback) {
+      callback(null, './public/post_file_upload')
+    },
+    filename: function (req, file, callback) {
+      callback(null, file.originalname)
+    }
+});
+const upload = multer({storage : storage});
 
 app.get ("/", ctrler.getIndex);
 app.get ("/aboutus", ctrler.getAboutUs);
@@ -33,15 +44,15 @@ app.get("/otherAccount/:username", accountCtrler.getOtherAccount);
 app.get("/home", homeCtrler.getHome);
 app.post("/home", homeCtrler.postHome);
 
-// app.get ("/viewpost/:postID", postCtrler.getPost);
-
-// app.get ("/postForm", postCtrler.getPostForm);
-// app.post ("/postForm", postCtrler.postPostForm);
-
-// app.get ("/editPostForm", postCtrler.getEditPostForm);
-// app.post ("/editPostForm", postCtrler.postEditPostForm);
-
-// app.post ("/?????", postCtrler.deletePost);	// Wala palang page yung delete wofeboufb
+app.get ("/viewPost/:postID", postCtrler.getPost);
+app.post("/upvote/:postID", postCtrler.postUpdateUpVote);
+app.post("/downvote/:postID", postCtrler.postUpdateDownVote);
+app.get("/postForm", postCtrler.getPostForm);
+app.post("/postForm", validation.postFormValid(), postCtrler.postPostForm);
+app.post("/postForm_FileUpload/:postID", upload.single('uploadF'), postCtrler.postPostForm_FileUpload);
+app.get ("/editPost/:postID", postCtrler.getEditPost);
+app.post ("/editPost/:postID", validation.postFormValid(), postCtrler.postEditPost);
+app.post ("/deletePost/:postID", postCtrler.postDeletePost);
 
 app.get ("/toc", ctrler.getTableOfContents);
 app.get("/plant/:pName", ctrler.getPlantSection);

@@ -14,7 +14,7 @@
 
 	<body id="contributionMBody">	
 		<!-- Main Tabs -->
-		{{#if username}}
+		{{#if role}}
 			{{> headerM}}
 		{{else}}
 			{{> headerV}}
@@ -23,10 +23,11 @@
 		<div id = "parent">
 			<div id = "onePage">
 				<div id = "pCeiling">
-					{{> post}}
+					{{> post1}}	
 				</div>
-				{{#if username}}
+				{{#if role}}
 					{{> writeCmnt}}
+				{{/if}}	
 				<div id = "pWallCmnt">
 					{{#each comments}}
 	                	{{> comment}}

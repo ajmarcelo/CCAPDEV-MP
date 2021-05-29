@@ -1,26 +1,35 @@
+const { validationResult } = require('express-validator');
 const db = require('../model/db.js');
-
 const Post = require('../model/postCQ.js');
-
+const Plant = require('../model/plant.js');
+const Comment = require('../model/postCmnts.js');
+const path = require('path');
 const postCtrler = {
     getPostForm: function (req, res) {
-        res.render('postForm');
+        var query = {};
+        var details = {};
+        db.findMany(Plant,query,'pName', function(result){
+            details.plants = result;
+            res.render('postForm', details);
+        });
     },
 
     postPostForm: function (req, res) {
         var username = req.session.username;
-
         var errors = validationResult(req);
 
         if (!errors.isEmpty()) {
             errors = errors.errors;
-
             var details = {};
 
             for(i = 0; i < errors.length; i++)
                 details[errors[i].param + 'Error'] = errors[i].msg;
 
+            details.plant = req.body.plant;
+            details.ptype = req.body.ptype;
+            details.msg = req.body.msg;
             res.render('postForm', details);
+
         }        
        
         else {
@@ -28,8 +37,7 @@ const postCtrler = {
             var date = new Date().toISOString().slice(0, 10);
             var plant = req.body.plant;
             var typeCQ = req.body.ptype;
-            var content = req.body.msg;
-            var file = req.body.imgf;                
+            var content = req.body.msg;              
 
             var post = {
                 username: username,
@@ -38,108 +46,175 @@ const postCtrler = {
                 plant: plant,
                 typeCQ: typeCQ,
                 content: content,
-                file: file
+                file: "",
+                upCtr: 0,
+                downCtr: 0, 
+                owner: username
             }
-
+        
             db.insertOne(Post, post, function(flag) {
-                if(flag)
-                    res.render ('plant', post);
-
+                if(flag){
+                    res.redirect('/plant/' + plant);
+                }
                 else
-                    res.render ('error');
+                    res.render('error');
             });	
         }    
-    },
+    },   
+
+    postPostForm_FileUpload: function (req, res) {
+        db.findOne(Post, {postID: req.params.postID}, '', function (result) {
+            if(result){
+                db.updateOne(Post, result, {file: req.file.originalname}, function (data) { 
+                    if(data)
+                        res.redirect('/plant/' + result.plant);
+                });
+            }
+        });
+    }, 
 
     getPost: function (req, res) {
         var query = {postID: req.params.postID};
-        var projection = 'username postID date plant typeCQ content file';
+        db.findOne(Post, query, '', function (result) {
+            if(result){
+                var date = new Date(result.date);
+                var happy = ("0"+(date.getMonth()+1)).slice(-2)+"-"+ ("0"+date.getDate()).slice(-2)+"-"+date.getFullYear();
+                var details = {
+
+                    postID:result.postID,
+                    username: result.username,
+                    date: happy,
+                    plant: result.plant,
+                    typeCQ: result.typeCQ,
+                    content: result.content,
+                    file: result.file,
+                    role: req.session.role,
+                    upCtr: result.upCtr,
+                    downCtr: result.downCtr                
+                };
+                
+                if(req.session.username == result.username)
+                    details.owner = result.username;
+                else
+                    details.owner = "";
+                
+                db.findMany (Comment, {postParent: req.params.postID}, '', function (result) {
+                    details.comments = result;
+                    res.render ('viewPost', details);
+                });                
+            }
+
+            else 
+                res.render('error');
+        });
+    },
+
+
+    getEditPost: function (req, res) {
+        var query = {postID: req.params.postID};
         var details = {};
 
-        db.findOne (Post, query, projection, function (post) {
-            details.username = post.username;
-            details.postID = post.postID;
-            details.date = post.date;
-            details.plant = post.plant;
-            details.typeCQ = post.typeCQ;
-            details.content = post.content;
-            details.file = post.file;
+        db.findOne(Post, query, '', function(result) {
 
-            db.findMany (Comment, {postParent: req.params.postID}, '', function (result) {
-                details.comments = result;
-            });
-            res.render ('viewpost', details);
-        });
-    },
-
-    editPost: function (req, res) {
-        var query = {postID: req.params.postID};
-        var projection = 'username date typeCQ content file';
-        var details = {}
-
-        db.findOne (Post, query, projection, function (post) {
-            if (post != null) {
-                details.username = post.username;
-                details.date = post.date;
-                details.typeCQ = post.typeCQ;
-                details.content = post.content;
-                details.file = post.file;
-                if (post.username == req.session.username)
-                    details.owner = true;
-
-                var urlParam = req.params.pName;
-                db.findOne (Plant, {pName: urlParam}, 'pName', function (plant)
-                {
-                    // urlRender = '/plant' + plant.pName;
-                    // res.render (urlRender, details);
-                    res.render ('editPostForm', details);
-                });
+            if(result) {               
+                details.plant = result.plant;
+                details.ptype = result.typeCQ;
+                details.msg = result.content;
+                db.findMany(Plant,{},'pName', function(result){
+                    if(result){
+                        details.plants = result;
+                        res.render('postForm', details);                        
+                    }
+                });             
             }
-            else
-                res.render ('error');
-        });
+            else {
+                res.render('error');
+            }
+        });          
     },
 
-    postEditPostForm: function (req, res) {
-        var username = req.session.uname;
-        var postID = db.getObjectID();
+    postEditPost: function (req, res) {
+        var query = {postID: req.params.postID};
+        var details = {};
         var date = new Date().toISOString().slice(0, 10);
         var plant = req.body.plant;
-        var typeCQ = req.body.typeCQ;
-        var content = req.body.content;
-        var file = req.body.file;
-        
-        var post = {
-            username: username,
-            postID: postID,
-            date: date,
-            plant: plant,
-            typeCQ: typeCQ,
-            content: content,
-            file: file
+        var typeCQ = req.body.ptype;
+        var content = req.body.msg;
+
+        var errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            errors = errors.errors;
+
+            for(i = 0; i < errors.length; i++)
+                details[errors[i].param + 'Error'] = errors[i].msg;
+            
+            res.render('postForm', details);               
         }
+        
+        else {
+            var plant = req.body.plant;
+            var ptype = req.body.ptype;
+            var content = req.body.msg;
+            var date = new Date().toISOString().slice(0, 10);
+                
+            var update = {
+                plant: plant,
+                typeCQ: ptype,
+                content: content,
+                date: date
+            }        
 
-        db.updateOne(Post, {postID: postID}, function(flag) {
-            if(flag)
-                res.render ('plant', post);
-
-            else
-                res.render ('error');
-        });   
+            db.updateOne(Post, query, update, function(flag) {
+                if(flag) {
+                    res.redirect('/viewPost/' + req.params.postID);                           
+                }
+            });                     
+        }
     },
 
-    deletePost: function (req, res) {
-        // var query = {pName: req.params.pName};
-
-        db.findOne (Plant, query, '', function (plant) {
-            var plantType = plant.pName;    // To go bakk to plant section
-            db.deleteOne (Post, {username: req.session.username}, function (post) {
-                db.deleteMany (Comment, {postParent: post.postID}, function (comment) {
-                    res.redirect('plant');
+    
+    postDeletePost: function (req, res) {
+        var query = {postID: req.params.postID};
+        var details = {};
+        db.findOne (Post, query, '', function (result) {
+            details.plant = result.plant;
+            db.deleteMany (Comment, {postParent: req.params.postID}, function (result) {
+                db.deleteOne (Post, {postID: req.params.postID}, function (result) {
+                    res.redirect('/plant/' + details.plant);
                 });
             });
+
         });
-    }
+    },
+
+    postUpdateUpVote: function (req, res) {
+        var query = {postID: req.params.postID};
+        var update = {};
+        var details = {};
+        db.findOne(Post, query, '', function(result){
+            update.upCtr = result.upCtr + 1;
+            db.updateOne(Post, query, update, function(flag) {
+                if(flag) {
+                    res.redirect('/viewPost/' + req.params.postID);                           
+                }
+            });  
+        });
+    },
+
+    postUpdateDownVote: function(req, res) {
+        var query = {postID: req.params.postID};
+        var update = {};
+        var details = {};
+        db.findOne(Post, query, '', function(result){
+            update.downCtr = result.downCtr + 1;
+            db.updateOne(Post, query, update, function(flag) {
+                if(flag) {
+                    res.redirect('/viewPost/' + req.params.postID);                           
+                }
+            });  
+        });
+    } 
 }
 
 module.exports = postCtrler;

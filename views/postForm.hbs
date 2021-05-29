@@ -26,7 +26,7 @@
 				width: 100%;
 			}
 
-			button {
+			#submitbutton {
   				border: 2px solid black;
   				color: white;
   				padding: 2px 24px;
@@ -38,10 +38,28 @@
 				border-radius: 12px;
 			}
 
-			button:hover {
+			#submitbutton:hover {
 				border-color: #d1a748;
 				background-color: #fff9dd;
 				color: #d1a748;
+			}
+
+			#uploadBtn {
+  				border: 2px solid black;
+  				color: white;
+  				padding: 2px 24px;
+  				cursor: pointer;				
+				width: 25%;
+				font-size: 3vh;
+				background-color: #8aa169;
+				border-color: #8aa169; 
+				border-radius: 12px;
+			}
+
+			#uploadBtn:hover {
+				border-color: #a7bb81;
+				background-color: #a7bb81;
+				color: #white;
 			}
 
 			label {
@@ -81,7 +99,7 @@
 				font-family: 'Montserrat', sans-serif;
 			}
 
-			#plantlabel, #postlabel, .error {
+			#plantlabel, #postlabel, .error, #postcontent {
 				font-family: 'Lato', sans-serif;
 			}
 
@@ -135,16 +153,20 @@
 				text-align: center;
 			}
 
+			#uploadMsg {
+				color: white;
+				font-size: 3vh;
+				color: #fff9dd;
+				margin: 0;
+				width: 100%;				
+
+			}
+
 			#postContents {
 				padding: 4% 4%;			
 				background-color: #8aa169;
 				border-radius: 12px;
 				width: 60%; 								
-			}
-			
-			#submit {
-				color: #8aa169;
-				text-decoration: none;
 			}
 					
 			#plant, #ptype {
@@ -158,8 +180,8 @@
 				justify-content: center;
 				align-items: center;						
 			}	
-			#postlabel {
-				padding-left:2%;
+			#postcontent {
+				font-size: 5vh;	
 			}
 		</style>
 	</head>
@@ -171,45 +193,35 @@
 		<div id="parentPostContents">
 			<div id="postContents">
 				<h1 id="posttitle">Posting Form</h1>
-
-				<p id="todayError" class = "error">{{todayError}}</p>
-				<p id="plantError" class = "error">{{plantError}}</p>
-				<p id="ptypeError" class = "error">{{ptypeError}}</p>
-				<p id="msgError" class = "error">{{msgError}}</p>
-
 				<br><br>
+				<form method="post">
 					<label id="plantlabel" >Plant</label>
 					<select class="postdets" name="plant" id="plant">
-						<option value="Fortune Plant">Fortune Plant</option>
-						<option value="Oregano">Oregano</option>
-						<option value="Peperomia">Peperomia</option>
-						<option value="Umbrella Plant">Umbrella Plant</option>
-						<option value="Wandering Plant">Wandering Plant</option>
+						{{#each plants}}
+							<option value="{{pName}}">{{pName}}</option>
+						{{/each}}
 					</select>
+					<p id="plantError" class = "error">{{plantError}}</p>
 					<label id="postlabel">Type of Post</label>
 					<select class="postdets" name="ptype" id="ptype">
-						<option value="[CONTRIBUTION]">Contribution</option>
-						<option value="[QUESTION]">Question</option>
+						<option value="CONTRIBUTION">Contribution</option>
+						<option value="QUESTION">Question</option>
 					</select>
-				<br><br>
-					<textarea class="message" id="msg" name="msg"placeholder="Write something.." style="height:200px"></textarea>
-				<br><br>
-					<input class="postdets" type="file" id="imgf" name="imgf">	
-				<br><br>
-				<div class = "error">
-					<p id = "err"></p>
-				</div>
-				<br><br><br>								
-				<button class="buttons" id="submitbutton">Submit</button>
+					<p id="ptypeError" class = "error">{{ptypeError}}</p>
+					<br>
+					<label id="postcontent">Content</label>
+						<textarea class="message" id="msg" name="msg"placeholder="Write something.." style="height:200px">{{content}}</textarea>
+						<p id="msgError" class = "error">{{msgError}}</p>
+					<br>
+						<p id = "uploadMsg">NOTE: You may upload an image file after submitting the form.</p>
+					<br><br>
+					<div class = "error">
+						<p id = "err"></p>
+					</div>
+					<br><br><br>								
+					<input type="submit" id="submitbutton" value="Submit" class = "buttons" name = "submitBtn">
+				</form>
 			</div>
 		</div>
-		<script>
-			function clicksubmit ()
-			{
-				alert("Your submission has been posted.")
-			}	
-			var submitButton = document.getElementById("submitbutton");
-			submitButton.onclick = clicksubmit;			
-		</script>	
 	</body>
 </html>

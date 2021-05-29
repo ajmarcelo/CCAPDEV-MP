@@ -1,14 +1,53 @@
 <div class = "btn">
-	<button class = "buttons up">
+	<form action="/upvote/{{postID}}" method="post">
+		<input type="submit" id="submit" value=&#8679 class = "upvote" name = "upvotebtn">
+	</form>		
+<!-- 	<button class = "buttons up">
 		<p class = "upvote"> &#8679 </p>
-	</button>
-	<button class = "buttons down">
+	</button> -->	
+	<form action="/downvote/{{postID}}" method="post">
+		<input type="submit" id="submit" value=&#8681 class = "downvote" name = "downvotebtn">
+	</form>		
+<!-- 	<button class = "buttons down">
 		<p class = "downvote"> &#8681 </p>
-	</button>							
-	<button class = "buttons edit">
-		<p class = "editlbl"> &#9998 </p>
+	</button> -->							
+	
+<!-- 	<form action="/editPost/{{postID}}" method="post">
+		<input type="submit" id="submit" value=&#9998 class = "editlbl" name = "editpostbtn">
+	</form>	 -->
+	<form></form>
+	<button class = "buttons-edit" id="editpost">
+		<a class = "editlbl" href = "/editPost/{{postID}}">&#9998</a>
 	</button>
-	<button class = "buttons delete">
-		<p class = "deletelbl"> &#10006 </p>
-	</button>
+	
+	<form action="/deletePost/{{postID}}" method="post">
+		<input type="submit" id="submit" value=&#10006 class = "deletelbl" name = "deletepostbtn">
+	</form>	
+<!-- 		<button  class = "buttons delete">
+			<p class = "deletelbl"> &#10006 </p>
+		</button> -->
+	<form action="/postForm_FileUpload/{{postID}}" method="post" enctype="multipart/form-data">
+ 		<input type="file" id='uploadF' name="uploadF" onchange="form.submit()" hidden/>
+    </form>	
+	<button class = "buttons-uploadF" id="uploadFbtn">
+		<p class = "uploadF">upload image</p>		
+	</button>	
 </div>
+<script>
+	function clickUploadImage() {
+  		document.getElementById("uploadF").click();
+	}
+	document.getElementById("uploadFbtn").addEventListener('click', clickUploadImage);
+	
+	// function clickEditPost ()
+	// {
+	// 	location.href = "/editPost/{{postID}}";
+	// }	
+	// var editPostBtn = document.getElementById("editpost");
+	// editPostBtn.onclick = clickEditPost;	
+</script>
+
+
+
+
+

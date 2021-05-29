@@ -47,11 +47,14 @@ const ctrler = {
                 details.pFamily = result.pFamily;
                 details.pPhoto = result.pPhoto;
                 details.role = req.session.role;
+                
                 db.findMany(Post, {plant: req.params.pName}, '', function(result) {
+   
                     details.posts = result;
+                    res.render('plant', details);
                 });
 
-                res.render('plant', details);
+                
             }
 
             else {

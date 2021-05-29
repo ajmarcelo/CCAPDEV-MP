@@ -1,8 +1,14 @@
 <div class = "btn">		
-	<button class = "buttons up">
+	<form action="/upvote/{{postID}}" method="post">
+		<input type="submit" id="submit" value=&#8679 class = "upvote" name = "upvotebtn">
+	</form>		
+<!-- 	<button class = "buttons up">
 		<p class = "upvote"> &#8679 </p>
-	</button>
-	<button class = "buttons down">
+	</button> -->	
+	<form action="/downvote/{{postID}}" method="post">
+		<input type="submit" id="submit" value=&#8681 class = "downvote" name = "downvotebtn">
+	</form>		
+<!-- 	<button class = "buttons down">
 		<p class = "downvote"> &#8681 </p>
-	</button>	
+	</button> -->		
 </div>

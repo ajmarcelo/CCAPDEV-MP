@@ -38,29 +38,33 @@ const accountCtrler = {
     getOtherAccount: function (req, res) {
         var query = {username: req.params.username};
 
-        var details = {};
+        if(req.params.username == req.session.username)
+            res.redirect('/myAccount');
+        else{
+            db.findOne(User, query, '', function(result) {
+                var details = {};
+                if(result != null) {
+                    var bday = new Date(result.birthday);
+                    var happy = ("0"+(bday.getMonth()+1)).slice(-2)+"-"+ ("0"+bday.getDate()).slice(-2)+"-"+bday.getFullYear();
+                    details.fName = result.fName;
+                    details.lName = result.lName;
+                    details.username = result.username;
+                    details.bio = result.bio;
+                    details.birthday = happy;
+                    details.country = result.country;
+                    details.email = result.email;
+                    details.businessName = result.businessName;
+                    details.businessYrs = result.businessYrs;  
+                    details.role = req.session.role;
+                    details.role1 = result.role;
+                    res.render('otherAccount', details);
+                }
 
-        db.findOne(User, query, '', function(result) {
-            if(result != null) {
-                var bday = new Date(result.birthday);
-                var happy = ("0"+(bday.getMonth()+1)).slice(-2)+"-"+ ("0"+bday.getDate()).slice(-2)+"-"+bday.getFullYear();
-                details.fName = result.fName;
-                details.lName = result.lName;
-                details.username = result.username;
-                details.bio = result.bio;
-                details.birthday = happy;
-                details.country = result.country;
-                details.email = result.email;
-                details.businessName = result.businessName;
-                details.businessYrs = result.businessYrs;  
-                details.role = result.role;
-                res.render('otherAccount', details);
-            }
-
-            else
-                res.render('error');
-            
-        });
+                else
+                    res.render('error');
+                
+            });
+        }
     },
 
     getEditAccount: function(req, res) {

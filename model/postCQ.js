@@ -4,7 +4,7 @@ var PostTab = new mongoose.Schema ({
 
 	username: {
 		type: String,
-		required: false
+		required: true
 	},
 
 	postID: {
@@ -33,6 +33,21 @@ var PostTab = new mongoose.Schema ({
 	},
 
 	file: { 
+		type: String,
+		required: false
+	},
+
+	upCtr: {
+		type: Number,
+		required: true
+	},
+
+	downCtr: {
+		type: Number,
+		required: true
+	},
+
+	owner: {
 		type: String,
 		required: false
 	}

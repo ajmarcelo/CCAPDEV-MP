@@ -6,7 +6,7 @@
 				</a>
 			</div>
 			<div class = "righthead">
-				<a class = "person" href = "/otherAccount/{{username}}">{{username}}</a>
+				<a class = "person" href = "/otherAccount/{{username}}">{{username}}</a>	
 				<p class = "date">{{date}}</p>
 			</div>
 		</div>
@@ -21,13 +21,17 @@
 			<br>
 			{{#if file}}
 				<img src="../post_file_upload/{{file}}" width="500">
-			{{/if}}			
+			{{/if}}
+
 		</p>
 	</div>
 	<div class = "voteCnt">
 		<p id = "upCnt"> {{upCtr}} </p><p> &#8679 </p>
 		<p id = "downCnt"> {{downCtr}} </p><p> &#8681 </p>
 	</div>
-	<a id = "comms" href="/viewPost/{{postID}}">View Comments</a>	
-	<br><br>
+	{{#if owner}}
+		{{> myPostBtns}}
+		{{else}}
+		{{> otherPostBtns}}
+	{{/if}}		
 </div>

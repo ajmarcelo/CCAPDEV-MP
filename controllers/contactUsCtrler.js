@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator');
 const ContactUs = require('../model/contact.js');
-
+const db = require('../model/db.js');
 const contactUsCtrler = {
     getContactUs: function (req, res) {
         var details = {role: req.session.role};
